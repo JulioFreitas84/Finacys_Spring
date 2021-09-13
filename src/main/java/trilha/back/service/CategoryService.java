@@ -6,6 +6,7 @@ import trilha.back.entity.Category;
 import trilha.back.repository.CategoryRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategoryService {
@@ -18,10 +19,13 @@ public class CategoryService {
     }
 
     public List<Category> listCategory(){
-        return categoryRepository.findAll();
+        return (List<Category>) categoryRepository.findAll();
+    }
+    public Optional<Category> buscarPorId(Long id){
+        return categoryRepository.findById(id);
     }
 
     public void removerPorId(Long id){
-        categoryRepository.deleteById(id);
+        categoryRepository.deleteAll();
     }
 }

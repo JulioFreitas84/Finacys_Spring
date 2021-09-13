@@ -1,13 +1,14 @@
 package trilha.back.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Entry {
+public class Entry implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
     @Column(name = "name", nullable = false)
     private String name;
     @Column(name = "description")
@@ -20,13 +21,16 @@ public class Entry {
     private String date;
     @Column(name = "paid")
     private String paid;
+    @Column(name = "pendent")
+    private Boolean pendent;
     @Column(name = "categoryId")
-    private Long categoryId;
+    private Category categoryId;
+
 
     public Entry(){}
 
-    public Entry(long id, String name, String description, String type
-            , String amount, String date, String paid, Long categoryId) {
+    public Entry(Long id, String name, String description, String type, String amount
+            , String date, String paid, Boolean pendent, Category categoryId) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -34,6 +38,7 @@ public class Entry {
         this.amount = amount;
         this.date = date;
         this.paid = paid;
+        this.pendent = pendent;
         this.categoryId = categoryId;
     }
 
@@ -47,15 +52,16 @@ public class Entry {
                 ", amount='" + amount + '\'' +
                 ", date='" + date + '\'' +
                 ", paid='" + paid + '\'' +
+                ", pendent='" + pendent + '\'' +
                 ", categoryId=" + categoryId +
                 '}';
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -99,19 +105,27 @@ public class Entry {
         this.date = date;
     }
 
-    public String getPade() {
+    public String getPaid() {
         return paid;
     }
 
-    public void setPade(String pade) {
-        this.paid = pade;
+    public void setPaid(String paid) {
+        this.paid = paid;
     }
 
-    public Long getCategoryId() {
+    public void setPendente(Boolean pendent){
+        this.pendent = pendent;
+    }
+
+    public Boolean getPendente(){
+        return pendent;
+    }
+
+    public Category getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(Long categoryId) {
+    public void setCategoryId(Category categoryId) {
         this.categoryId = categoryId;
     }
 }
