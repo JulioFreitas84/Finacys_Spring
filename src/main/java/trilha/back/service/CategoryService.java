@@ -11,17 +11,17 @@ import java.util.List;
 public class CategoryService {
 
     @Autowired
-    private CategoryRepository CategoryRepository;
+    private CategoryRepository categoryRepository;
 
     public Category salvar(Category category){
-        return CategoryRepository.save(category);
+        return categoryRepository.save(category);
     }
 
     public List<Category> listCategory(){
-        return CategoryRepository.findAll();
+        return categoryRepository.findAll();
     }
 
     public void removerPorId(Long id){
-        CategoryRepository.deleteById(id);
+        categoryRepository.deleteById(id);
     }
 }
