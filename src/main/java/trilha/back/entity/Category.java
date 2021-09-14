@@ -13,6 +13,8 @@ public class Category implements Serializable {
     private String name;
     @Column(name = "description_cat")
     private String description;
+    @ManyToOne
+    private Entry ent;
 
     public Category(){
 

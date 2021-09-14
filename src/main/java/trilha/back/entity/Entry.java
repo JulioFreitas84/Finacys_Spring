@@ -1,7 +1,10 @@
 package trilha.back.entity;
 
+import org.springframework.boot.autoconfigure.amqp.RabbitProperties;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Entry implements Serializable {
@@ -23,14 +26,14 @@ public class Entry implements Serializable {
     private String paid;
     @Column(name = "pendent")
     private Boolean pendent;
-    @Column(name = "categoryId")
-    private Category categoryId;
-
+    @OneToMany
+    @Column(name = "Category")
+    private List<Category> categoryId;
 
     public Entry(){}
 
     public Entry(Long id, String name, String description, String type, String amount
-            , String date, String paid, Boolean pendent, Category categoryId) {
+            , String date, String paid, Boolean pendent, List<Category> categoryId) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -52,7 +55,7 @@ public class Entry implements Serializable {
                 ", amount='" + amount + '\'' +
                 ", date='" + date + '\'' +
                 ", paid='" + paid + '\'' +
-                ", pendent='" + pendent + '\'' +
+                ", pendent=" + pendent +
                 ", categoryId=" + categoryId +
                 '}';
     }
@@ -113,19 +116,19 @@ public class Entry implements Serializable {
         this.paid = paid;
     }
 
-    public void setPendente(Boolean pendent){
-        this.pendent = pendent;
-    }
-
-    public Boolean getPendente(){
+    public Boolean getPendent() {
         return pendent;
     }
 
-    public Category getCategoryId() {
+    public void setPendent(Boolean pendent) {
+        this.pendent = pendent;
+    }
+
+    public List<Category> getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(Category categoryId) {
+    public void setCategoryId(List<Category> categoryId) {
         this.categoryId = categoryId;
     }
 }
