@@ -1,10 +1,7 @@
 package trilha.back.entity;
 
-import org.springframework.boot.autoconfigure.amqp.RabbitProperties;
-
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 public class Entry implements Serializable {
@@ -26,14 +23,14 @@ public class Entry implements Serializable {
     private String paid;
     @Column(name = "pendent")
     private Boolean pendent;
-    @OneToMany
-    @Column(name = "Category")
-    private List<Category> categoryId;
+    @ManyToOne
+    @JoinColumn(name = "categoryId")
+    private Category categoryId;
 
     public Entry(){}
 
     public Entry(Long id, String name, String description, String type, String amount
-            , String date, String paid, Boolean pendent, List<Category> categoryId) {
+            , String date, String paid, Boolean pendent, Category categoryId) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -124,11 +121,11 @@ public class Entry implements Serializable {
         this.pendent = pendent;
     }
 
-    public List<Category> getCategoryId() {
+    public Category getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(List<Category> categoryId) {
+    public void setCategoryId(Category categoryId) {
         this.categoryId = categoryId;
     }
 }
