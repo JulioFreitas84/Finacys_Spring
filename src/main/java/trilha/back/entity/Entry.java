@@ -24,7 +24,7 @@ public class Entry implements Serializable {
     @Column(name = "pendent")
     private Boolean pendent;
     @ManyToOne
-    @JoinColumn(name = "categoryId")
+    @JoinColumn(name = "categoryId", referencedColumnName = "id")
     private Category categoryId;
 
     public Entry(){}
