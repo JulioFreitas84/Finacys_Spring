@@ -25,7 +25,7 @@ public class Entry implements Serializable {
     private Boolean pendent;
     @ManyToOne
     @JoinColumn(name = "categoryId")
-    private Category categoryId;
+    private Category categoryId ;
 
     public Entry(){}
 
