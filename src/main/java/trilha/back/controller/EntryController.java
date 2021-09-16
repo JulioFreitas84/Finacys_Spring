@@ -37,7 +37,6 @@ public class EntryController {
         return entryService.listEntry();
     }
 
-
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Entry buscarEntryPorId(@PathVariable("id") Long id){
