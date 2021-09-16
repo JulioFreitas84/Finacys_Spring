@@ -1,6 +1,8 @@
 package trilha.back.controller;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreType;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -23,7 +25,6 @@ public class EntryController {
     @Autowired
     private ModelMapper modelMapper;
 
-
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Entry salvar(@RequestBody Entry entry) {
@@ -36,6 +37,7 @@ public class EntryController {
         return entryService.listEntry();
     }
 
+
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public Entry buscarEntryPorId(@PathVariable("id") Long id){
@@ -46,21 +48,12 @@ public class EntryController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void removerEntryId(@PathVariable("id") Long id) {
-        entryService.buscarPorId(id)
-                .map(entry -> {
-                    entryService.removerPorId(entry.getId());
-                    return Void.TYPE;
-                }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Entry não encontrado"));
+        entryService.buscarPorId(id);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)                  //Receber um Entry
     public void atualizarEntry(@PathVariable("id") Long id, @RequestBody Entry entry) {
-        entryService.buscarPorId(id)
-                .map(entryBase -> {
-                    modelMapper.map(entry, entryBase);
-                    entryService.salvar(entryBase);
-                    return Void.TYPE;
-                }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Entry não encontrado"));
+        entryService.buscarPorId(id);
     }
 }

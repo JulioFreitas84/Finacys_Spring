@@ -1,5 +1,7 @@
 package trilha.back.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,16 +18,16 @@ public class Category implements Serializable {
     @Column(name = "description_cat")
     private String description;
     @OneToMany(mappedBy = "categoryId")
-    private List<Entry> ent;
+    private List<Entry> entry;
 
     public Category(){
     }
 
-    public Category(Long id, String name, String description, List<Entry> ent) {
+    public Category(Long id, String name, String description, List<Entry> entry) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.ent = ent;
+        this.entry = entry;
     }
 
     @Override
@@ -34,7 +36,7 @@ public class Category implements Serializable {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", ent=" + ent +
+                ", ent=" + entry +
                 '}';
     }
 
@@ -61,12 +63,12 @@ public class Category implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
-
+    @JsonIgnore
     public List<Entry> getEnt() {
-        return ent;
+        return entry;
     }
 
     public void setEnt(List<Entry> ent) {
-        this.ent = ent;
+        this.entry = ent;
     }
 }
