@@ -15,8 +15,8 @@ public class Category implements Serializable {
     private String name;
     @Column(name = "description_cat")
     private String description;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoryId", orphanRemoval = true)
-    private List<Entry> ent = new ArrayList<>();
+    @OneToMany(mappedBy = "categoryId")
+    private List<Entry> ent;
 
     public Category(){
     }

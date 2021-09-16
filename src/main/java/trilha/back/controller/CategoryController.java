@@ -4,6 +4,7 @@ package trilha.back.controller;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import trilha.back.entity.Category;
@@ -27,6 +28,12 @@ public class CategoryController {
         return categoryService.salvar(category);
     }
 
+    @Validated
+    @ResponseStatus(HttpStatus.OK)
+    public boolean validaCategoryById(Long id){
+        return categoryService.validaCategoryById(id);
+    }
+
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Category> listCategory() {
@@ -43,11 +50,7 @@ public class CategoryController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void removerCategoryId(@PathVariable("id") Long id) {
-        categoryService.buscarPorId(id)
-                .map(category -> {
-                    categoryService.removerPorId(category.getId());
-                    return Void.TYPE;
-                }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Category não encontrado"));
+        categoryService.removerPorId(id);
     }
 
     @PutMapping("/{id}")

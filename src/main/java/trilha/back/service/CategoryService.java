@@ -21,11 +21,16 @@ public class CategoryService {
     public List<Category> listCategory(){
         return (List<Category>) categoryRepository.findAll();
     }
+
     public Optional<Category> buscarPorId(Long id){
         return categoryRepository.findById(id);
     }
 
     public void removerPorId(Long id){
-        categoryRepository.deleteAll();
+        categoryRepository.deleteById(id);
+    }
+
+    public boolean validaCategoryById(Long id){
+       return categoryRepository.findById(id).isPresent() ? true : false;
     }
 }

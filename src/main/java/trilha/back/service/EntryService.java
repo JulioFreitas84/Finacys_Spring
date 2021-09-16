@@ -8,6 +8,7 @@ import trilha.back.repository.CategoryRepository;
 import trilha.back.repository.EntryRepository;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service

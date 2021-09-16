@@ -23,6 +23,7 @@ public class EntryController {
     @Autowired
     private ModelMapper modelMapper;
 
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Entry salvar(@RequestBody Entry entry) {
