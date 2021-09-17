@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import trilha.back.dto.EntryDto;
 import trilha.back.entity.Entry;
 import trilha.back.service.EntryService;
 
@@ -33,8 +34,10 @@ public class EntryController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Entry> listEntry() {
-        return entryService.listEntry();
+    public List<EntryDto> listEntry() {
+        List<Entry> entries = entryService.listEntry();
+        return EntryDto.convert(entries);
+
     }
 
     @GetMapping("/{id}")

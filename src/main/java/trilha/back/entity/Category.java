@@ -32,13 +32,5 @@ public class Category implements Serializable {
         return entry;
     }
 
-    @Override
-    public String toString() {
-        return "Category{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", ent=" + entry +
-                '}';
-    }
+
 }

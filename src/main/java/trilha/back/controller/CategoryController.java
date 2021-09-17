@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import trilha.back.dto.CategoryDto;
 import trilha.back.entity.Category;
 import trilha.back.service.CategoryService;
 
@@ -43,8 +44,10 @@ public class CategoryController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<Category> listCategory() {
-        return categoryService.listCategory();
+    public List<CategoryDto> listCategory() {
+        List<Category> categories = categoryService.listCategory();
+        return CategoryDto.convert(categories);
+       // return categoryService.listCategory();
     }
 
     @GetMapping("/{id}")

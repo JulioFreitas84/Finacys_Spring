@@ -1,10 +1,13 @@
 package trilha.back.entity;
 
-import jdk.jfr.DataAmount;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -33,20 +36,6 @@ public class Entry implements Serializable {
     @JoinColumn(name = "categoryId")
     private Category categoryId ;
 
-    @Override
-    public String toString() {
-        return "Entry{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", type='" + type + '\'' +
-                ", amount='" + amount + '\'' +
-                ", date='" + date + '\'' +
-                ", paid='" + paid + '\'' +
-                ", pendent=" + pendent +
-                ", categoryId=" + categoryId +
-                '}';
-    }
 }
 
 
