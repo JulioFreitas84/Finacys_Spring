@@ -1,11 +1,15 @@
 package trilha.back.entity;
 
 import jdk.jfr.DataAmount;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Entry implements Serializable {
 
@@ -30,20 +34,6 @@ public class Entry implements Serializable {
     @JoinColumn(name = "categoryId")
     private Category categoryId ;
 
-    public Entry(){}
-
-    public Entry(Long id, String name, String description, String type, String amount
-            , String date, String paid, Boolean pendent, Category categoryId) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.type = type;
-        this.amount = amount;
-        this.date = date;
-        this.paid = paid;
-        this.pendent = pendent;
-        this.categoryId = categoryId;
-    }
 
     @Override
     public String toString() {
@@ -58,78 +48,6 @@ public class Entry implements Serializable {
                 ", pendent=" + pendent +
                 ", categoryId=" + categoryId +
                 '}';
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public String getAmount() {
-        return amount;
-    }
-
-    public void setAmount(String amount) {
-        this.amount = amount;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getPaid() {
-        return paid;
-    }
-
-    public void setPaid(String paid) {
-        this.paid = paid;
-    }
-
-    public Boolean getPendent() {
-        return pendent;
-    }
-
-    public void setPendent(Boolean pendent) {
-        this.pendent = pendent;
-    }
-
-    public Category getCategoryId() {
-        return categoryId;
-    }
-
-    public void setCategoryId(Category categoryId) {
-        this.categoryId = categoryId;
     }
 }
 
