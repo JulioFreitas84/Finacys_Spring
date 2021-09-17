@@ -27,7 +27,6 @@ public class EntryService {
     public Optional<Entry> buscarPorId(Long id){
         return entryRepository.findById(id);
     }
-   // Optional<Entry> retorno = Optional.empty();
 
     public void removerPorId(Long id){
         entryRepository.deleteById(id);

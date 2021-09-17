@@ -32,8 +32,7 @@ public class CategoryController {
     }
 
     @Validated
-    @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<Boolean> validaCategoryById(Long id){
+    public ResponseEntity<Boolean> validaCategoryById(@Validated @RequestBody Long id){
       buscarCategoryPorId(id);
       if (id != null){
           return new ResponseEntity<>(HttpStatus.OK);
