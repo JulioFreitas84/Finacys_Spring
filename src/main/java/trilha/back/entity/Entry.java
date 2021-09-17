@@ -1,15 +1,14 @@
 package trilha.back.entity;
 
 import jdk.jfr.DataAmount;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Entity
 public class Entry implements Serializable {
 
@@ -33,7 +32,6 @@ public class Entry implements Serializable {
     @ManyToOne
     @JoinColumn(name = "categoryId")
     private Category categoryId ;
-
 
     @Override
     public String toString() {

@@ -4,11 +4,14 @@ package trilha.back.controller;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import trilha.back.entity.Category;
 import trilha.back.service.CategoryService;
+
+import javax.persistence.Id;
 import java.util.List;
 
 @RestController
@@ -30,8 +33,13 @@ public class CategoryController {
 
     @Validated
     @ResponseStatus(HttpStatus.OK)
-    public boolean validaCategoryById(Long id){
-        return categoryService.validaCategoryById(id);
+    public ResponseEntity<Boolean> validaCategoryById(Long id){
+      buscarCategoryPorId(id);
+      if (id != null){
+          return new ResponseEntity<>(HttpStatus.OK);
+      }else {
+          return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+      }
     }
 
     @GetMapping
@@ -63,6 +71,5 @@ public class CategoryController {
                     return Void.TYPE;
                 }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Category naõ encontrado"));
     }
-
 }
 
