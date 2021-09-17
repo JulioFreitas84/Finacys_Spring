@@ -1,8 +1,11 @@
 package trilha.back.entity;
 
+import jdk.jfr.DataAmount;
+import lombok.Data;
+
 import javax.persistence.*;
 import java.io.Serializable;
-
+@Data
 @Entity
 public class Entry implements Serializable {
 
