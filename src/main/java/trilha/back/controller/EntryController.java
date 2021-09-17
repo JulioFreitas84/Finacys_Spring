@@ -47,12 +47,17 @@ public class EntryController {
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void removerEntryId(@PathVariable("id") Long id) {
-        entryService.buscarPorId(id);
+        entryService.removerPorId(id);
     }
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)                  //Receber um Entry
     public void atualizarEntry(@PathVariable("id") Long id, @RequestBody Entry entry) {
-        entryService.buscarPorId(id);
+        entryService.buscarPorId(id)
+                .map(entryBase -> {
+                    modelMapper.map(entry, entryBase);
+                    entryService.salvar(entryBase);
+                    return Void.TYPE;
+                }).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Category naõ encontrado"));
     }
 }

@@ -30,6 +30,6 @@ public class EntryService {
    // Optional<Entry> retorno = Optional.empty();
 
     public void removerPorId(Long id){
-        entryRepository.deleteAll();
+        entryRepository.deleteById(id);
     }
 }
