@@ -12,7 +12,6 @@ import trilha.back.dto.CategoryDto;
 import trilha.back.entity.Category;
 import trilha.back.service.CategoryService;
 
-import javax.persistence.Id;
 import java.util.List;
 
 @RestController

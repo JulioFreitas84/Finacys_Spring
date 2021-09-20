@@ -31,6 +31,6 @@ public class CategoryService {
     }
 
     public boolean validaCategoryById(Long id){
-       return categoryRepository.findById(id).isPresent() ? true : false;
+       return categoryRepository.findById(id).isPresent();
     }
 }
