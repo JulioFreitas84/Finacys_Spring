@@ -27,7 +27,7 @@ public class EntryService {
     }
     public Entry buscarPorId(Long id){
         return entryRepository.findById(id).orElseThrow(
-                () -> new EntityNotFoundException("Id not found" + id));
+                () -> new EntityNotFoundException("Minha msg Id não encontrado " + id));
     }
 
     public void removerPorId(Long id){

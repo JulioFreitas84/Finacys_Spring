@@ -46,19 +46,9 @@ public class EntryController {
     //tudo isso é um EndPoint
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<StandardError> buscarEntryPorId(@PathVariable("id") Long id) {
-        try {
-            Entry obj = entryService.buscarPorId(id);
-        } catch (EntityNotFoundException e) {
-            StandardError error = new StandardError();
-            error.setTimestamp(Instant.now());
-            error.setStatus(HttpStatus.NOT_FOUND.value());
-            error.setError("Meu erro Inserido");
-            error.setMessage(e.getMessage());
-            error.setPath("------");
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
-        }
-        return null;
+    public ResponseEntity<Entry> buscarEntryPorId(@PathVariable("id") Long id) {
+        Entry entry = entryService.buscarPorId(id);
+        return ResponseEntity.ok().body(entry);
     }
 
     @DeleteMapping("/{id}")
