@@ -53,7 +53,7 @@ public class EntryController {
             StandardError error = new StandardError();
             error.setTimestamp(Instant.now());
             error.setStatus(HttpStatus.NOT_FOUND.value());
-            error.setError("Resource not found");
+            error.setError("Meu erro Inserido");
             error.setMessage(e.getMessage());
             error.setPath("------");
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
