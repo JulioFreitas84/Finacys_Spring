@@ -14,6 +14,7 @@ import trilha.back.service.CategoryService;
 
 import java.util.List;
 
+//Controlador Rest
 @RestController
 @RequestMapping("/category")
 public class CategoryController {
@@ -46,7 +47,6 @@ public class CategoryController {
     public List<CategoryDto> listCategory() {
         List<Category> categories = categoryService.listCategory();
         return CategoryDto.convert(categories);
-       // return categoryService.listCategory();
     }
 
     @GetMapping("/{id}")

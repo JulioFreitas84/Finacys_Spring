@@ -8,6 +8,7 @@ import trilha.back.entity.Entry;
 import java.util.List;
 import java.util.stream.Collectors;
 
+// Criação da classes DTO
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,6 +18,7 @@ public class CategoryDto {
     private String description;
     private List<Entry> entry;
 
+    //O construtor da classe Dto é o objeto que ela vai refatoras
     public CategoryDto(Category category) {
         this.name = category.getName();
         this.description = category.getDescription();

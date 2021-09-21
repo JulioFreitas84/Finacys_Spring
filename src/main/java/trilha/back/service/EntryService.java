@@ -6,6 +6,7 @@ import trilha.back.entity.Category;
 import trilha.back.entity.Entry;
 import trilha.back.repository.CategoryRepository;
 import trilha.back.repository.EntryRepository;
+import trilha.back.service.exceptions.EntityNotFoundException;
 
 import java.util.List;
 import java.util.Objects;
@@ -24,8 +25,9 @@ public class EntryService {
     public List<Entry> listEntry(){
         return (List<Entry>) entryRepository.findAll();
     }
-    public Optional<Entry> buscarPorId(Long id){
-        return entryRepository.findById(id);
+    public Entry buscarPorId(Long id){
+        return entryRepository.findById(id).orElseThrow(
+                () -> new EntityNotFoundException("Id not found" + id));
     }
 
     public void removerPorId(Long id){

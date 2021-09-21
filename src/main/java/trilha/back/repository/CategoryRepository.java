@@ -6,4 +6,5 @@ import trilha.back.entity.Category;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<Category, Long> {
+    //O Repository acessa o banco de dados
 }
