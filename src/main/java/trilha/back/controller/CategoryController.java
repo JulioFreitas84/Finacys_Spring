@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/category")
 public class CategoryController {
 
-    //injetar
+    //injetar service
     @Autowired
     private CategoryService categoryService;
 
