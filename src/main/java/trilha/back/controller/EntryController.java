@@ -4,6 +4,7 @@ package trilha.back.controller;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import trilha.back.entity.Entry;
@@ -22,6 +23,11 @@ public class EntryController {
     //Injetar
     @Autowired
     private ModelMapper modelMapper;
+
+    @GetMapping(value = "/{x}/{y}/calcular")
+    public ResponseEntity<Integer> calculaMedia(@PathVariable Integer x, @PathVariable Integer y ) {
+       return ResponseEntity.ok(entryService.calculaMedia(x, y));
+    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

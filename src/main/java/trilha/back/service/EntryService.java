@@ -30,4 +30,14 @@ public class EntryService {
     public void removerPorId(Long id){
         entryRepository.deleteAll();
     }
+
+    public Integer calculaMedia(Integer x, Integer y) {
+        try {
+            return (x / y);
+
+        } catch (RuntimeException error) {
+            System.out.println("Divisão somente por numeros inteiros");
+        }
+        return calculaMedia(x,y);
+    }
 }
