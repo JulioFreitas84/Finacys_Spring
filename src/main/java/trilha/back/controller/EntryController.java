@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import trilha.back.entity.Entry;
+import trilha.back.exceptions.UnSuportedMathOperationException;
 import trilha.back.service.EntryService;
 
 import java.util.List;
@@ -25,12 +26,14 @@ public class EntryController {
     private ModelMapper modelMapper;
 
     @GetMapping(value = "/{x}/{y}/calcular")
-    public ResponseEntity<Integer> calculaMedia(@PathVariable Integer x, @PathVariable Integer y ) throws Exception {
-        if (calculaMedia(x,y) != equals(Double)){
-            throw new UnsupportedOperationException("Numero invalido");
+    public ResponseEntity<Integer> calculaMedia(@PathVariable Integer x, @PathVariable Integer y ){
+        try {
+            ResponseEntity.ok(entryService.calculaMedia(x, y));
+        }catch (Exception exception){
+            exception.getMessage();
+        }finally {
+            throw new UnsupportedOperationException("Falha na ooperação");
         }
-        Integer converte = Double.valueOf(entryService.calculaMedia(RequestMethod.valueOf()));
-        return ResponseEntity.ok(entryService.calculaMedia(x, y));
     }
 
     @PostMapping

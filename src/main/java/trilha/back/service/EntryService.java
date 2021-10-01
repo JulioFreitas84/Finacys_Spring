@@ -32,12 +32,6 @@ public class EntryService {
     }
 
     public Integer calculaMedia(Integer x,Integer  y) {
-        try {
-            return (x / y);
-
-        } catch (Exception error) {
-            System.out.println("Divisão somente por numeros inteiros");
-        }
-      return null;
+        return (x / y);
     }
 }
