@@ -27,13 +27,13 @@ public class EntryController {
 
     @GetMapping(value = "/{x}/{y}/calcular")
     public ResponseEntity<Integer> calculaMedia(@PathVariable Integer x, @PathVariable Integer y ){
-        try {
-            ResponseEntity.ok(entryService.calculaMedia(x, y));
-        }catch (Exception exception){
-            exception.getMessage();
-        }finally {
-            throw new UnsupportedOperationException("Falha na ooperação");
-        }
+
+     try {
+         return ResponseEntity.ok(entryService.calculaMedia(x,y));
+     }catch (Exception e){
+         e.getMessage();
+     }
+     return calculaMedia(x, y);
     }
 
     @PostMapping
