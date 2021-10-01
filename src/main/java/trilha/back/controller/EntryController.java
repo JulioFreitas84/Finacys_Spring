@@ -25,8 +25,12 @@ public class EntryController {
     private ModelMapper modelMapper;
 
     @GetMapping(value = "/{x}/{y}/calcular")
-    public ResponseEntity<Integer> calculaMedia(@PathVariable Integer x, @PathVariable Integer y ) {
-       return ResponseEntity.ok(entryService.calculaMedia(x, y));
+    public ResponseEntity<Integer> calculaMedia(@PathVariable Integer x, @PathVariable Integer y ) throws Exception {
+        if (calculaMedia(x,y) != equals(Double)){
+            throw new UnsupportedOperationException("Numero invalido");
+        }
+        Integer converte = Double.valueOf(entryService.calculaMedia(RequestMethod.valueOf()));
+        return ResponseEntity.ok(entryService.calculaMedia(x, y));
     }
 
     @PostMapping
