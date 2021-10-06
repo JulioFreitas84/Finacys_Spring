@@ -3,14 +3,13 @@ package trilha.back.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import trilha.back.dtos.request.CategoryRequest;
-import trilha.back.dtos.response.CategoryResponse;
+import trilha.back.dtos.request.CriarCategoriaRequest;
+import trilha.back.dtos.response.CriarCategoriaResponse;
 import trilha.back.entity.Category;
 import trilha.back.repository.CategoryRepository;
 import trilha.back.service.CategoryService;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CategoryServiceImplents implements  CategoryService {
@@ -19,8 +18,11 @@ public class CategoryServiceImplents implements  CategoryService {
     CategoryRepository categoryRepository;
 
     @Override
-    public Category salvarCategory(CategoryRequest category) {
-        return categoryRepository.save(category);
+    public CriarCategoriaResponse salvarCategory(CriarCategoriaRequest category) {
+        Category model = new Category();
+        model.setName(category.getName());
+        categoryRepository.save(model);
+        return new CriarCategoriaResponse(model.getId()) ;
     }
 
     @Override

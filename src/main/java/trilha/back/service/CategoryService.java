@@ -1,16 +1,15 @@
 package trilha.back.service;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import trilha.back.dtos.request.CategoryRequest;
+import trilha.back.dtos.request.CriarCategoriaRequest;
+import trilha.back.dtos.response.CriarCategoriaResponse;
 import trilha.back.entity.Category;
 
 import java.util.List;
 
 public interface CategoryService {
 
-    Category salvarCategory(CategoryRequest category);
+    CriarCategoriaResponse salvarCategory(CriarCategoriaRequest category);
 
     ResponseEntity<List<Category>> getCategoryList();
 

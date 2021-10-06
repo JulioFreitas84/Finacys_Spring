@@ -2,12 +2,12 @@ package trilha.back.dtos.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class CategoryResponse {
+public class CriarCategoriaResponse {
 
     @JsonProperty("numero_do_id_categoria")
     private Long id;
 
-    public CategoryResponse(Long id) {
+    public CriarCategoriaResponse(Long id) {
         this.id = id;
     }
 

@@ -7,10 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
-import trilha.back.dtos.request.CategoryRequest;
+import trilha.back.dtos.request.CriarCategoriaRequest;
 import trilha.back.entity.Category;
-import trilha.back.repository.CategoryRepository;
 import trilha.back.service.CategoryService;
 
 import java.util.List;
@@ -29,8 +27,8 @@ public class CategoryController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Object> postCategory(Category category) {
-        return ResponseEntity.ok(categoryService.salvarCategory(category).getId());
+    public ResponseEntity<Object> postCategory(@RequestBody CriarCategoriaRequest request) {
+        return ResponseEntity.ok(categoryService.salvarCategory(request));
     }
 
     @GetMapping
@@ -42,7 +40,7 @@ public class CategoryController {
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Category> getCategoryList(@PathVariable Long id){
-        return ResponseEntity.ok(categoryService.getCategoryList(id).orElseThrow());
+        return ResponseEntity.ok(categoryService.getCategoryList(id));
     }
 
     @PutMapping("/{id}")
