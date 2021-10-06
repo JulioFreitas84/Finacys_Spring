@@ -15,19 +15,23 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @Entity
-public class CategoryModel implements Serializable {
+public class Category implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     @Column(name = "name_cat", nullable = false)
     private String name;
+
     @Column(name = "description_cat")
     private String description;
+
     @OneToMany(mappedBy = "categoryId")
-    private List<EntryModel> entry;
+    private List<Entry> entry;
+
     @JsonIgnore
-    public List<EntryModel> getEntry(){
+    public List<Entry> getEntry(){
         return entry;
     }
 

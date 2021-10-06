@@ -1,36 +1,25 @@
 package trilha.back.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import trilha.back.entity.CategoryModel;
-import trilha.back.repository.CategoryRepository;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import trilha.back.dtos.request.CategoryRequest;
+import trilha.back.entity.Category;
 
 import java.util.List;
-import java.util.Optional;
 
-@Service
-public class CategoryService {
+public interface CategoryService {
 
-    @Autowired
-    private CategoryRepository categoryRepository;
+    Category salvarCategory(CategoryRequest category);
 
-    public CategoryModel salvar(CategoryModel category){
-        return categoryRepository.save(category);
-    }
+    ResponseEntity<List<Category>> getCategoryList();
 
-    public List<CategoryModel> listCategory(){
-        return (List<CategoryModel>) categoryRepository.findAll();
-    }
+    ResponseEntity<Category> getCategoryList(Long id);
 
-    public Optional<CategoryModel> buscarPorId(Long id){
-        return categoryRepository.findById(id);
-    }
+    Category atualizacategory(Long id, Category category);
 
-    public void removerPorId(Long id){
-        categoryRepository.deleteById(id);
-    }
+    void deletaCategory(Long id);
 
-    public boolean validaCategoryById(Long id){
-       return categoryRepository.findById(id).isPresent();
-    }
+    boolean validar();
+
 }

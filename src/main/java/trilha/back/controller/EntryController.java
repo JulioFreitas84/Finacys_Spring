@@ -6,10 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import trilha.back.dto.EntryApplicationServerDto;
-import trilha.back.entity.EntryModel;
+import trilha.back.entity.Entry;
 
-import trilha.back.service.EntryService;
+import trilha.back.service.impl.EntryServiceImplents;
 
 import java.util.List;
 
@@ -20,7 +19,7 @@ public class EntryController {
 
     //injetar
     @Autowired
-    private EntryService entryService;
+    private EntryServiceImplents entryService;
 
     //Injetar
     @Autowired
@@ -39,7 +38,7 @@ public class EntryController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public EntryModel salvar(@RequestBody EntryModel entry) {
+    public Entry salvar(@RequestBody Entry entry) {
         return entryService.salvar(entry);
     }
 
@@ -47,16 +46,16 @@ public class EntryController {
     //lista criada com tratativa ResponseStatus
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<EntryApplicationServerDto> listEntry(Long id) {
-        List<EntryModel> entries = entryService.listEntry();
-        return EntryApplicationServerDto.convert(entries);
+    public List<EntryDto> listEntry(Long id) {
+        List<Entry> entries = entryService.listEntry();
+        return EntryDto.convert(entries);
     }
 
     //tudo isso é um EndPoint
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<EntryModel> buscarEntryPorId(@PathVariable("id") Long id) {
-        EntryModel entry = entryService.buscarPorId(id);
+    public ResponseEntity<Entry> buscarEntryPorId(@PathVariable("id") Long id) {
+        Entry entry = entryService.buscarPorId(id);
         return ResponseEntity.ok().body(entry);
     }
 
@@ -68,7 +67,7 @@ public class EntryController {
 
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)                  //Receber um Entry
-    public void atualizarEntry(@PathVariable("id") Long id, @RequestBody EntryModel entry) {
+    public void atualizarEntry(@PathVariable("id") Long id, @RequestBody Entry entry) {
         entryService.buscarPorId(id);
     }
 }

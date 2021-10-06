@@ -13,7 +13,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @ToString
 @Entity
-public class EntryModel implements Serializable {
+public class Entry implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,7 +34,7 @@ public class EntryModel implements Serializable {
     private Boolean pendent;
     @ManyToOne
     @JoinColumn(name = "categoryId")
-    private CategoryModel categoryId ;
+    private Category categoryId ;
 
 }
 
