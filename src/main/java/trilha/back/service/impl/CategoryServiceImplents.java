@@ -1,5 +1,6 @@
 package trilha.back.service.impl;
 
+import com.sun.xml.bind.v2.model.core.Ref;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -27,12 +28,12 @@ public class CategoryServiceImplents implements  CategoryService {
 
     @Override
     public ResponseEntity<List<Category>> getCategoryList() {
-        return categoryRepository.findAll();
+        return ResponseEntity.ok(categoryRepository.findAll());
     }
 
     @Override
     public ResponseEntity<Category> getCategoryList(Long id) {
-        return categoryRepository.findById(id).orElseThrow();
+        return ResponseEntity.ok(categoryRepository.findById(id).orElseThrow());
     }
 
     @Override

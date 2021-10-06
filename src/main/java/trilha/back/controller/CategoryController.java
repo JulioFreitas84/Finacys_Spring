@@ -34,18 +34,18 @@ public class CategoryController {
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<List<Category>> getCategoryList(){
-        return ResponseEntity.ok(categoryService.getCategoryList());
+        return ResponseEntity.ok(categoryService.getCategoryList().getBody());
     }
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Category> getCategoryList(@PathVariable Long id){
-        return ResponseEntity.ok(categoryService.getCategoryList(id));
+        return ResponseEntity.ok(categoryService.getCategoryList(id)).getBody();
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Category> atualizacategory(@PathVariable Long id,@RequestBody Category category){
-        return ResponseEntity.ok(categoryService.atualizacategory(id, category);
+        return ResponseEntity.ok(categoryService.atualizacategory(id, category));
     }
 
 
