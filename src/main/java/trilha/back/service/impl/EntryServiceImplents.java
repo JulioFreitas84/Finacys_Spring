@@ -1,36 +1,58 @@
 package trilha.back.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import trilha.back.dtos.request.CriarEntryRequest;
+import trilha.back.dtos.response.CriarEntryResponse;
 import trilha.back.entity.Entry;
 import trilha.back.repository.EntryRepository;
-import trilha.back.service.exceptions.EntityNotFoundException;
+import trilha.back.service.EntryService;
 
 import java.util.List;
 
 @Service
-public class EntryServiceImplents {
+public class EntryServiceImplents implements EntryService {
 
     @Autowired
     private EntryRepository entryRepository;
 
-    public Entry salvar(Entry entry){
-        return entryRepository.save(entry);
+    @Override
+    public CriarEntryResponse salvarEntry(CriarEntryRequest entry) {
+        Entry model = new Entry();
+        model.setId(entry.getId());
+        return new CriarEntryResponse(model.getId());
     }
 
-    public List<Entry> listEntry(){
-        return (List<Entry>) entryRepository.findAll();
-    }
-    public Entry buscarPorId(Long id){
-        return entryRepository.findById(id).orElseThrow(
-                () -> new EntityNotFoundException("Minha msg Id não encontrado " + id));
+    @Override
+    public ResponseEntity<List<Entry>> listEntry(Long id) {
+        return ResponseEntity.ok(entryRepository.findAll());
     }
 
-    public void removerPorId(Long id){
+    @Override
+    public ResponseEntity<Entry> buscarEntryPorId(Long id) {
+        return ResponseEntity.ok(entryRepository.findById(id).orElseThrow());
+    }
+
+    @Override
+    public Entry atualizarEntry(Long id, Entry entry) {
+        Entry base = entryRepository.findById(id).orElseThrow();
+        return entryRepository.save(novoAtualizado(base,entry));
+
+    }
+
+    private Entry novoAtualizado(Entry base, Entry entry) {
+        base.setName(base.getName());
+        return base;
+    }
+
+    @Override
+    public void removerEntryId(Long id) {
         entryRepository.deleteById(id);
     }
 
-    public Integer calculaMedia(Integer x,Integer  y) {
-        return (x / y);
+    @Override
+    public ResponseEntity<Integer> calculaMedia(Integer x, Integer y) {
+        return null;
     }
 }

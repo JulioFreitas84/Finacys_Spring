@@ -1,6 +1,5 @@
 package trilha.back.service.impl;
 
-import com.sun.xml.bind.v2.model.core.Ref;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
