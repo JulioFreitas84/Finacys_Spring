@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import trilha.back.dtos.request.CriarEntryRequest;
+import trilha.back.controller.dtos.request.CriarEntryRequest;
 import trilha.back.entity.Entry;
 import trilha.back.service.EntryService;
 
