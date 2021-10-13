@@ -9,7 +9,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import trilha.back.controller.dtos.request.CriarCategoriaRequest;
 import trilha.back.entity.Category;
-import trilha.back.service.CategoryService;
+import trilha.back.repository.CategoryRepository;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ public class CategoryController {
 
     //injetar dependencia da interface categoryRepository dentro desse cara
     @Autowired
-    private CategoryService categoryService;
+    private CategoryRepository categoryService;
 
     @Autowired
     public ModelMapper modelMapper;

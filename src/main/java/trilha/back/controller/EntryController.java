@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import trilha.back.controller.dtos.request.CriarEntryRequest;
 import trilha.back.entity.Entry;
-import trilha.back.service.EntryService;
+import trilha.back.repository.EntryRepository;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class EntryController {
 
     //injetar
     @Autowired
-    private EntryService entryService;
+    private EntryRepository entryService;
 
     //Injetar
     @Autowired

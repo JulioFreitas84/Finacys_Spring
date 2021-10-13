@@ -1,4 +1,4 @@
-package trilha.back.service.impl;
+package trilha.back.repository.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -7,12 +7,12 @@ import trilha.back.controller.dtos.request.CriarCategoriaRequest;
 import trilha.back.controller.dtos.response.CriarCategoriaResponse;
 import trilha.back.entity.Category;
 import trilha.back.data.CategoryData;
-import trilha.back.service.CategoryService;
+import trilha.back.repository.CategoryRepository;
 
 import java.util.List;
 
 @Service
-public class CategoryServiceImplents implements  CategoryService {
+public class CategoryRepositoryImplents implements CategoryRepository {
 
     @Autowired
     CategoryData categoryRepository;

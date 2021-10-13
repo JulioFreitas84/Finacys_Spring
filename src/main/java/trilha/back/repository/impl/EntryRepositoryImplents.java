@@ -1,4 +1,4 @@
-package trilha.back.service.impl;
+package trilha.back.repository.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -7,12 +7,12 @@ import trilha.back.controller.dtos.request.CriarEntryRequest;
 import trilha.back.controller.dtos.response.CriarEntryResponse;
 import trilha.back.entity.Entry;
 import trilha.back.data.EntryData;
-import trilha.back.service.EntryService;
+import trilha.back.repository.EntryRepository;
 
 import java.util.List;
 
 @Service
-public class EntryServiceImplents implements EntryService {
+public class EntryRepositoryImplents implements EntryRepository {
 
     @Autowired
     private EntryData entryRepository;

@@ -1,4 +1,4 @@
-package trilha.back.service;
+package trilha.back.repository;
 
 import org.springframework.http.ResponseEntity;
 import trilha.back.controller.dtos.request.CriarCategoriaRequest;
@@ -7,7 +7,7 @@ import trilha.back.entity.Category;
 
 import java.util.List;
 
-public interface CategoryService {
+public interface CategoryRepository {
 
     CriarCategoriaResponse salvarCategory(CriarCategoriaRequest category);
 

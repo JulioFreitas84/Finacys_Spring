@@ -1,4 +1,4 @@
-package trilha.back.service;
+package trilha.back.repository;
 
 import org.springframework.http.ResponseEntity;
 import trilha.back.controller.dtos.request.CriarEntryRequest;
@@ -7,7 +7,7 @@ import trilha.back.entity.Entry;
 
 import java.util.List;
 
-public interface EntryService {
+public interface EntryRepository {
 
     CriarEntryResponse salvarEntry(CriarEntryRequest entry);
 
