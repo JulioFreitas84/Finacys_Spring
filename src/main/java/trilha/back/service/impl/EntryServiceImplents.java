@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import trilha.back.dtos.request.CriarEntryRequest;
 import trilha.back.dtos.response.CriarEntryResponse;
 import trilha.back.entity.Entry;
-import trilha.back.repository.EntryRepository;
+import trilha.back.data.EntryData;
 import trilha.back.service.EntryService;
 
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.List;
 public class EntryServiceImplents implements EntryService {
 
     @Autowired
-    private EntryRepository entryRepository;
+    private EntryData entryRepository;
 
     @Override
     public CriarEntryResponse salvarEntry(CriarEntryRequest entry) {
