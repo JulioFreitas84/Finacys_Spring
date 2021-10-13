@@ -1,24 +1,10 @@
 package trilha.back.repository;
 
-import org.springframework.http.ResponseEntity;
-import trilha.back.controller.dtos.request.CriarCategoriaRequest;
-import trilha.back.controller.dtos.response.CriarCategoriaResponse;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import trilha.back.entity.Category;
 
-import java.util.List;
-
-public interface CategoryRepository {
-
-    CriarCategoriaResponse salvarCategory(CriarCategoriaRequest category);
-
-    ResponseEntity<List<Category>> getCategoryList();
-
-    ResponseEntity<Category> getCategoryList(Long id);
-
-    Category atualizacategory(Long id, Category category);
-
-    void deletaCategory(Long id);
-
-    boolean validar();
-
+@Repository
+public interface CategoryRepository extends JpaRepository<Category, Long> {
+    //O Repository acessa o banco de dados
 }

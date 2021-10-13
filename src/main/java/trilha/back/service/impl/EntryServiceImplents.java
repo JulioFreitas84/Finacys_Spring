@@ -1,4 +1,4 @@
-package trilha.back.repository.impl;
+package trilha.back.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -6,22 +6,23 @@ import org.springframework.stereotype.Service;
 import trilha.back.controller.dtos.request.CriarEntryRequest;
 import trilha.back.controller.dtos.response.CriarEntryResponse;
 import trilha.back.entity.Entry;
-import trilha.back.data.EntryData;
 import trilha.back.repository.EntryRepository;
+import trilha.back.service.EntryService;
 
 import java.util.List;
 
 @Service
-public class EntryRepositoryImplents implements EntryRepository {
+public class EntryServiceImplents implements EntryService {
 
     @Autowired
-    private EntryData entryRepository;
+    private EntryRepository entryRepository;
 
     @Override
     public CriarEntryResponse salvarEntry(CriarEntryRequest entry) {
         Entry model = new Entry();
-        model.setId(entry.getId());
-        return new CriarEntryResponse(model.getId());
+        model.setName(model.getName());
+        model.setDescription(model.getDescription());
+        return new CriarEntryResponse(model.getName(), model.getDescription());
     }
 
     @Override
@@ -55,4 +56,11 @@ public class EntryRepositoryImplents implements EntryRepository {
     public ResponseEntity<Integer> calculaMedia(Integer x, Integer y) {
         return null;
     }
+
+    @Override
+    public ResponseEntity<Object> getEntryDependents(String datalancamento, String amount, boolean paid) {
+        return ResponseEntity.ok(entryRepository.findAll());
+    }
+
+
 }

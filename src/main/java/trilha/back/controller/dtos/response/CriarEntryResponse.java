@@ -4,18 +4,28 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class CriarEntryResponse {
 
-    @JsonProperty("id_da_Response_Entry")
-    private Long id;
+    @JsonProperty("name_response")
+    private String name;
+    @JsonProperty("description_reponse")
+    private String description;
 
-    public CriarEntryResponse(Long id) {
-        this.id = id;
+    public CriarEntryResponse(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+    public String getName() {
+        return name;
     }
 
-    public Long getId(){
-        return id;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setId(Long id){
-        this.id = id;
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

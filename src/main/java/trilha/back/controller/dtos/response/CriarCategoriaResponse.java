@@ -6,15 +6,19 @@ public class CriarCategoriaResponse {
 
     @JsonProperty("numero_do_id_categoria")
     private Long id;
-    @JsonProperty("name_category")
+    @JsonProperty("name_categoria")
     private String name;
-    @JsonProperty("descricao_category")
+    @JsonProperty("descricao_categoria")
     private String description;
 
     public CriarCategoriaResponse(Long id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
+    }
+
+    public CriarCategoriaResponse(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -31,10 +35,6 @@ public class CriarCategoriaResponse {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public CriarCategoriaResponse(Long id) {
-        this.id = id;
     }
 
     public Long getId() {

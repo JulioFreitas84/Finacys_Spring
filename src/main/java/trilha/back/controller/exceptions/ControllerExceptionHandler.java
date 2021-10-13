@@ -4,7 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import trilha.back.repository.exceptions.EntityNotFoundException;
+import trilha.back.service.exceptions.EntityNotFoundException;
 
 import javax.servlet.http.HttpServletRequest;
 import java.time.Instant;

@@ -7,7 +7,7 @@ public class CriarCategoriaRequest {
     @JsonProperty("nome_da_categoria_request")
     private String name;
 
-    @JsonProperty("descricao")
+    @JsonProperty("description_category_request")
     private String descricao;
 
     public String getDescricao() {

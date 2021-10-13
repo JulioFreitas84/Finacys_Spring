@@ -1,4 +1,4 @@
-package trilha.back.repository.impl;
+package trilha.back.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -6,23 +6,24 @@ import org.springframework.stereotype.Service;
 import trilha.back.controller.dtos.request.CriarCategoriaRequest;
 import trilha.back.controller.dtos.response.CriarCategoriaResponse;
 import trilha.back.entity.Category;
-import trilha.back.data.CategoryData;
 import trilha.back.repository.CategoryRepository;
+import trilha.back.service.CategoryService;
 
 import java.util.List;
 
 @Service
-public class CategoryRepositoryImplents implements CategoryRepository {
+public class CategoryServiceImplents implements CategoryService {
 
     @Autowired
-    CategoryData categoryRepository;
+    CategoryRepository categoryRepository;
 
     @Override
     public CriarCategoriaResponse salvarCategory(CriarCategoriaRequest category) {
         Category model = new Category();
         model.setName(category.getName());
+        model.setDescription(category.getDescricao());
         categoryRepository.save(model);
-        return new CriarCategoriaResponse(model.getId()) ;
+        return new CriarCategoriaResponse(model.getId(), model.getName(), model.getDescription()) ;
     }
 
     @Override

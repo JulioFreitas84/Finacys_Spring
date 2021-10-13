@@ -4,18 +4,40 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class CriarEntryRequest {
 
-    @JsonProperty("id_da_Request_Entry")
-    private Long id;
+    @JsonProperty("data_lancamento")
+    private String date;
+    @JsonProperty("amount")
+    private String amount;
+    @JsonProperty("paid")
+    private String paid;
 
-    public CriarEntryRequest(Long id) {
-        this.id = id;
+    public CriarEntryRequest(String date, String amount, String paid) {
+        this.date = date;
+        this.amount = amount;
+        this.paid = paid;
     }
 
-    public Long getId() {
-        return id;
+    public String getDate() {
+        return date;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getAmount() {
+        return amount;
+    }
+
+    public void setAmount(String amount) {
+        this.amount = amount;
+    }
+
+    public String getPaid() {
+        return paid;
+    }
+
+    public void setPaid(String paid) {
+        this.paid = paid;
     }
 }

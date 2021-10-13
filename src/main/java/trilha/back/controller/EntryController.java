@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import trilha.back.controller.dtos.request.CriarEntryRequest;
 import trilha.back.entity.Entry;
-import trilha.back.repository.EntryRepository;
+import trilha.back.service.EntryService;
 
 import java.util.List;
 
@@ -19,7 +19,7 @@ public class EntryController {
 
     //injetar
     @Autowired
-    private EntryRepository entryService;
+    private EntryService entryService;
 
     //Injetar
     @Autowired
@@ -42,7 +42,7 @@ public class EntryController {
     //tudo isso é um EndPoint
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<Entry> buscarEntryPorId(@PathVariable("id") Long id) {
+    public ResponseEntity<Entry> buscarEntryPorId(@PathVariable Long id) {
         return ResponseEntity.ok(entryService.buscarEntryPorId(id)).getBody();
     }
 
@@ -68,5 +68,14 @@ public class EntryController {
             e.getMessage();
         }
         return calculaMedia(x, y);
+    }
+
+    @GetMapping("/filter")
+    public ResponseEntity<Object> getEntryDependents(
+            @RequestParam(value = "data_lançamento", required = false)String datalancamento,
+            @RequestParam(value = "amount",required = false)String amount,
+            @RequestParam(value = "paid",required = false)boolean paid
+    ){
+        return ResponseEntity.ok(entryService.getEntryDependents(datalancamento,amount,paid));
     }
 }
