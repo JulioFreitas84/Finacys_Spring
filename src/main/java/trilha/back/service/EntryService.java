@@ -3,6 +3,7 @@ package trilha.back.service;
 import org.springframework.http.ResponseEntity;
 import trilha.back.controller.dtos.request.CriarEntryRequest;
 import trilha.back.controller.dtos.response.CriarEntryResponse;
+import trilha.back.controller.dtos.response.CriarResponseEntryFilter;
 import trilha.back.entity.Entry;
 
 import java.util.List;
@@ -21,5 +22,5 @@ public interface EntryService {
 
     ResponseEntity<Integer> calculaMedia(Integer x, Integer y );
 
-    ResponseEntity<Object> getEntryDependents(String datalancamento, String amount, boolean paid);
+    CriarResponseEntryFilter getEntryDependents(String datalancamento, String amount, boolean paid);
 }

@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import trilha.back.controller.dtos.request.CriarEntryRequest;
 import trilha.back.controller.dtos.response.CriarEntryResponse;
+import trilha.back.controller.dtos.response.CriarResponseEntryFilter;
 import trilha.back.entity.Entry;
 import trilha.back.repository.EntryRepository;
 import trilha.back.service.EntryService;
@@ -58,8 +59,13 @@ public class EntryServiceImplents implements EntryService {
     }
 
     @Override
-    public ResponseEntity<Object> getEntryDependents(String datalancamento, String amount, boolean paid) {
-        return ResponseEntity.ok(entryRepository.findAll());
+    public CriarResponseEntryFilter getEntryDependents(String datalancamento, String amount, boolean paid) {
+        Entry entrygetDependets = new Entry();
+        entrygetDependets.setDate(entrygetDependets.getDate());
+        entrygetDependets.setAmount(entrygetDependets.getAmount());
+        entrygetDependets.setPaid(entrygetDependets.getPaid());
+        return new CriarResponseEntryFilter(entrygetDependets.getDate(),
+                entrygetDependets.getAmount(),entrygetDependets.getPaid().isEmpty());
     }
 
 
