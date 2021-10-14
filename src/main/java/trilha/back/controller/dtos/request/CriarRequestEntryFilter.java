@@ -8,9 +8,9 @@ public class CriarRequestEntryFilter {
     @JsonProperty("amountt")
     private String amount;
     @JsonProperty("paid")
-    private boolean paid;
+    private String paid;
 
-    public CriarRequestEntryFilter(String date, String amount, boolean paid) {
+    public CriarRequestEntryFilter(String date, String amount, String paid) {
         this.date = date;
         this.amount = amount;
         this.paid = paid;
@@ -32,11 +32,11 @@ public class CriarRequestEntryFilter {
         this.amount = amount;
     }
 
-    public boolean isPaid() {
+    public String getPaid() {
         return paid;
     }
 
-    public void setPaid(boolean paid) {
+    public void setPaid(String paid) {
         this.paid = paid;
     }
 }

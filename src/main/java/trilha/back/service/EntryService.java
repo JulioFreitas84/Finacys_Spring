@@ -23,5 +23,5 @@ public interface EntryService {
 
     ResponseEntity<Integer> calculaMedia(Integer x, Integer y );
 
-    CriarResponseEntryFilter getEntryDependents(CriarRequestEntryFilter criarRequestEntryFilter);
+    CriarResponseEntryFilter litarEntryDependents(CriarRequestEntryFilter criarRequestEntryFilter);
 }

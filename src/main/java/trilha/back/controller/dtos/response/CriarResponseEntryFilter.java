@@ -3,6 +3,7 @@ package trilha.back.controller.dtos.response;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class CriarResponseEntryFilter {
+
     @JsonProperty("data_lancamento_filter")
     private String date;
     @JsonProperty("amount_filter")

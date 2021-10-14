@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import trilha.back.controller.dtos.request.CriarEntryRequest;
+import trilha.back.controller.dtos.request.CriarRequestEntryFilter;
 import trilha.back.entity.Entry;
 import trilha.back.service.EntryService;
 
@@ -71,11 +72,12 @@ public class EntryController {
     }
 
     @GetMapping("/filter")
-    public ResponseEntity<Entry> getEntryDependents(
-            @RequestParam(value = "data_lançamento", required = false)String datalancamento,
-            @RequestParam(value = "amount",required = false)String amount,
-            @RequestParam(value = "paid",required = false)boolean paid
+    public ResponseEntity<Object> getEntryDependents(
+            @RequestParam(value = "data_lançamento", required = false)
+                    String datalancamento,
+                    String amount,
+                    boolean paid
     ){
-        return ResponseEntity.ok(entryService.getEntryDependents();
+        return new ResponseEntity<Object>(entryService.litarEntryDependents());
     }
 }

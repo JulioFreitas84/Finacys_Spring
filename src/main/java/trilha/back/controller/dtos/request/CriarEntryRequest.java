@@ -9,9 +9,9 @@ public class CriarEntryRequest {
     @JsonProperty("amount")
     private String amount;
     @JsonProperty("paid")
-    private String paid;
+    private boolean paid;
 
-    public CriarEntryRequest(String date, String amount, String paid) {
+    public CriarEntryRequest(String date, String amount, boolean paid) {
         this.date = date;
         this.amount = amount;
         this.paid = paid;
@@ -33,11 +33,11 @@ public class CriarEntryRequest {
         this.amount = amount;
     }
 
-    public String getPaid() {
+    public boolean isPaid() {
         return paid;
     }
 
-    public void setPaid(String paid) {
+    public void setPaid(boolean paid) {
         this.paid = paid;
     }
 }

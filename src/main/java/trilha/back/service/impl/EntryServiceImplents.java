@@ -60,11 +60,13 @@ public class EntryServiceImplents implements EntryService {
     }
 
     @Override
-    public CriarResponseEntryFilter getEntryDependents(CriarRequestEntryFilter criarRequestEntryFilter) {
+    public CriarResponseEntryFilter litarEntryDependents(CriarRequestEntryFilter criarRequestEntryFilter) {
         Entry entrygetDependets = new Entry();
         entrygetDependets.setDate(entrygetDependets.getDate());
         entrygetDependets.setAmount(entrygetDependets.getAmount());
         entrygetDependets.setPaid(entrygetDependets.getPaid());
+
+
         return new CriarResponseEntryFilter(entrygetDependets.getDate(),
                 entrygetDependets.getAmount(),entrygetDependets.getPaid().isBlank());
     }
