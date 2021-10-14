@@ -1,12 +1,13 @@
 package trilha.back.service.impl;
 
+import ch.qos.logback.classic.spi.IThrowableProxy;
+import net.bytebuddy.pool.TypePool;
+import org.springframework.aop.ThrowsAdvice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import trilha.back.controller.dtos.request.CriarEntryRequest;
-import trilha.back.controller.dtos.request.CriarRequestEntryFilter;
 import trilha.back.controller.dtos.response.CriarEntryResponse;
-import trilha.back.controller.dtos.response.CriarResponseEntryFilter;
 import trilha.back.entity.Entry;
 import trilha.back.repository.EntryRepository;
 import trilha.back.service.EntryService;
@@ -40,7 +41,7 @@ public class EntryServiceImplents implements EntryService {
     @Override
     public Entry atualizarEntry(Long id, Entry entry) {
         Entry base = entryRepository.findById(id).orElseThrow();
-        return entryRepository.save(novoAtualizado(base,entry));
+        return entryRepository.save(novoAtualizado(base, entry));
 
     }
 
@@ -60,15 +61,15 @@ public class EntryServiceImplents implements EntryService {
     }
 
     @Override
-    public CriarResponseEntryFilter litarEntryDependents(CriarRequestEntryFilter criarRequestEntryFilter) {
-        Entry entrygetDependets = new Entry();
-        entrygetDependets.setDate(entrygetDependets.getDate());
-        entrygetDependets.setAmount(entrygetDependets.getAmount());
-        entrygetDependets.setPaid(entrygetDependets.getPaid());
+    public ResponseEntity<Entry> listFilter(String lancamento, String amount, boolean paid) {
+        List<Entry> list = entryRepository.findAll();
+        listFilter(lancamento, amount, paid);
 
+        if (lancamento == null || amount == null || paid == Boolean.valueOf(false)) {
+            System.out.println("Contem um elemento nulo !!!");
+        }else{
 
-        return new CriarResponseEntryFilter(entrygetDependets.getDate(),
-                entrygetDependets.getAmount(),entrygetDependets.getPaid().isBlank());
+        }
+        return null; 
     }
-
 }

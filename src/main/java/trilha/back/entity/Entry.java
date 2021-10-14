@@ -29,7 +29,7 @@ public class Entry implements Serializable {
     @Column(name = "date")
     private String date;
     @Column(name = "paid")
-    private String paid;
+    private Boolean paid;
     @Column(name = "pendent")
     private Boolean pendent;
     @ManyToOne

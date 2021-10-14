@@ -6,4 +6,6 @@ import trilha.back.entity.Entry;
 
 @Repository
 public interface EntryRepository extends JpaRepository<Entry,Long> {
+
+
 }
