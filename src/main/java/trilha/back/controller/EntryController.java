@@ -76,6 +76,6 @@ public class EntryController {
             @RequestParam(value = "amount", required = false) String amount,
             @RequestParam(value = "paid", required = false) boolean paid
     ){
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(entryService.listFilter(datalancamento, amount, paid)).getBody();
     }
 }

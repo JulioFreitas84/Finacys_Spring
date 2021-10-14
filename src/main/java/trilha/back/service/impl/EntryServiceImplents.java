@@ -65,11 +65,11 @@ public class EntryServiceImplents implements EntryService {
         List<Entry> list = entryRepository.findAll();
         listFilter(lancamento, amount, paid);
 
-        if (lancamento == null || amount == null || paid == Boolean.valueOf(false)) {
-            System.out.println("Contem um elemento nulo !!!");
-        }else{
+        if ((lancamento == null || amount == null || paid == Boolean.valueOf(Boolean.FALSE))) {
+
+            System.out.println("Contem um elemento nulo !!!" );
 
         }
-        return null; 
+        return listFilter(lancamento, amount, paid);
     }
 }
