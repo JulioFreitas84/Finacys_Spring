@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import trilha.back.controller.dtos.request.CriarEntryRequest;
+import trilha.back.controller.dtos.request.CriarRequestEntryFilter;
 import trilha.back.controller.dtos.response.CriarEntryResponse;
 import trilha.back.controller.dtos.response.CriarResponseEntryFilter;
 import trilha.back.entity.Entry;
@@ -59,14 +60,13 @@ public class EntryServiceImplents implements EntryService {
     }
 
     @Override
-    public CriarResponseEntryFilter getEntryDependents(String datalancamento, String amount, boolean paid) {
+    public CriarResponseEntryFilter getEntryDependents(CriarRequestEntryFilter criarRequestEntryFilter) {
         Entry entrygetDependets = new Entry();
         entrygetDependets.setDate(entrygetDependets.getDate());
         entrygetDependets.setAmount(entrygetDependets.getAmount());
         entrygetDependets.setPaid(entrygetDependets.getPaid());
         return new CriarResponseEntryFilter(entrygetDependets.getDate(),
-                entrygetDependets.getAmount(),entrygetDependets.getPaid().isEmpty());
+                entrygetDependets.getAmount(),entrygetDependets.getPaid().isBlank());
     }
-
 
 }

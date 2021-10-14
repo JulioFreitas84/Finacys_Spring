@@ -71,11 +71,11 @@ public class EntryController {
     }
 
     @GetMapping("/filter")
-    public ResponseEntity<Object> getEntryDependents(
+    public ResponseEntity<Entry> getEntryDependents(
             @RequestParam(value = "data_lançamento", required = false)String datalancamento,
             @RequestParam(value = "amount",required = false)String amount,
             @RequestParam(value = "paid",required = false)boolean paid
     ){
-        return ResponseEntity.ok(entryService.getEntryDependents(datalancamento,amount,paid));
+        return ResponseEntity.ok(entryService.getEntryDependents();
     }
 }
