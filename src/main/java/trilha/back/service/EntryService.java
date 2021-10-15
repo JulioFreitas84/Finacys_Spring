@@ -21,6 +21,7 @@ public interface EntryService {
 
     ResponseEntity<Integer> calculaMedia(Integer x, Integer y );
 
-    ResponseEntity<Entry> listFilter(String lancamento, String amount, boolean paid);
+
+    List<Entry> listFilter(String lancamento, String amount, boolean paid);
 
 }

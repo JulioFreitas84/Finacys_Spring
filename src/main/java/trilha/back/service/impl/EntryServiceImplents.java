@@ -1,8 +1,5 @@
 package trilha.back.service.impl;
 
-import ch.qos.logback.classic.spi.IThrowableProxy;
-import net.bytebuddy.pool.TypePool;
-import org.springframework.aop.ThrowsAdvice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -13,7 +10,6 @@ import trilha.back.repository.EntryRepository;
 import trilha.back.service.EntryService;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class EntryServiceImplents implements EntryService {
@@ -62,7 +58,14 @@ public class EntryServiceImplents implements EntryService {
     }
 
     @Override
-    public ResponseEntity<List<Entry>> listFilter(String datalacamento, String amount, boolean paid) {
-        return ResponseEntity.ok(entryRepository.findAll());
+    public List<Entry> listFilter(String lancamento, String amount, boolean paid){
+
+        if (lancamento == null || amount == null){
+            throw new RuntimeException("erro");
+        }
+        List<Entry> lancamentos = entryRepository.findByDateAndAmountAndPaid(lancamento, amount, paid);
+        return lancamentos;
+        // return ResponseEntity.ok(entryRepository.findAll());
     }
+
 }

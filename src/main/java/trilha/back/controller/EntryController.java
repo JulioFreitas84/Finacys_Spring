@@ -76,11 +76,15 @@ public class EntryController {
     }
 
     @GetMapping("/filter")
-    public ResponseEntity<Entry> getEntryDependents(
+    public ResponseEntity<Object> getEntryDependents(
             @RequestParam(value = "data_lançamento", required = false) String datalancamento,
             @RequestParam(value = "amount", required = false) String amount,
             @RequestParam(value = "paid", required = false) boolean paid
     ){
-        return new ResponseEntity<Object>(entryService.listFilter());
+       try {
+           return  ResponseEntity.ok(entryService.listFilter(datalancamento, amount, paid));
+       } catch (Exception e){
+           return ResponseEntity.badRequest().build();
+        }
     }
 }
