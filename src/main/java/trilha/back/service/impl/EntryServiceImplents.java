@@ -13,6 +13,7 @@ import trilha.back.repository.EntryRepository;
 import trilha.back.service.EntryService;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class EntryServiceImplents implements EntryService {
@@ -57,19 +58,11 @@ public class EntryServiceImplents implements EntryService {
 
     @Override
     public ResponseEntity<Integer> calculaMedia(Integer x, Integer y) {
-        return null;
+        return ResponseEntity.ok(x / y);
     }
 
     @Override
-    public ResponseEntity<Entry> listFilter(String lancamento, String amount, boolean paid) {
-        List<Entry> list = entryRepository.findAll();
-        listFilter(lancamento, amount, paid);
-
-        if ((lancamento == null || amount == null || paid == Boolean.valueOf(Boolean.FALSE))) {
-
-            System.out.println("Contem um elemento nulo !!!" );
-
-        }
-        return listFilter(lancamento, amount, paid);
+    public ResponseEntity<List<Entry>> listFilter(String datalacamento, String amount, boolean paid) {
+        return ResponseEntity.ok(entryRepository.findAll());
     }
 }

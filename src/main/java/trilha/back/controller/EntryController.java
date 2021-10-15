@@ -10,6 +10,8 @@ import trilha.back.controller.dtos.request.CriarEntryRequest;
 import trilha.back.entity.Entry;
 import trilha.back.service.EntryService;
 
+import javax.persistence.EntityNotFoundException;
+import java.awt.*;
 import java.util.List;
 
 //Controlador Rest
@@ -63,11 +65,14 @@ public class EntryController {
     @GetMapping(value = "/{x}/{y}/calcular")
     public ResponseEntity<Integer> calculaMedia(@PathVariable Integer x, @PathVariable Integer y ){
         try {
-            return ResponseEntity.ok(entryService.calculaMedia(x,y)).getBody();
-        }catch (Exception e){
-            e.getMessage();
+            calculaMedia(x, y);
+           // return ResponseEntity.ok(entryService.calculaMedia(x,y)).getBody();
+        }catch (EntityNotFoundException e){
+
+            System.out.println("Meu errooooo" + e);
         }
-        return calculaMedia(x, y);
+        return ResponseEntity.ok(entryService.calculaMedia(x, y).getBody());
+
     }
 
     @GetMapping("/filter")
@@ -76,6 +81,6 @@ public class EntryController {
             @RequestParam(value = "amount", required = false) String amount,
             @RequestParam(value = "paid", required = false) boolean paid
     ){
-        return ResponseEntity.ok(entryService.listFilter(datalancamento, amount, paid)).getBody();
+        return new ResponseEntity<Object>(entryService.listFilter());
     }
 }
