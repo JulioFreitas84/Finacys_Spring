@@ -14,5 +14,4 @@ import java.util.Optional;
 public interface EntryRepository extends JpaRepository<Entry,Long> {
     List<Entry> findByDateAndAmountAndPaid(String lancamento, String amount, boolean paid);
 
-    Optional <Entry> findByReverveName(String lacamento, String amount, boolean paid);
 }

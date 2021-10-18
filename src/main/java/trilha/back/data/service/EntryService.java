@@ -24,8 +24,10 @@ public interface EntryService {
 
     List<Entry> listFilter(String lancamento, String amount, boolean paid);
 
-/*   ######################### Metodo de teste Unitario ###########################   */
+    /*   ######################### Metodo de teste Unitario ###########################   */
 
+    int dayCalculatorDataBase(String name);
 
-    Optional<Entry> amountCalculadosNaBase(String lancamento, String amount, boolean paid);
+    /*   ######################### Metodo de teste Unitario ###########################   */
+
 }

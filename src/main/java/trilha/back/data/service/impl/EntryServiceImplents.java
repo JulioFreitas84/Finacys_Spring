@@ -70,9 +70,8 @@ public class EntryServiceImplents implements EntryService {
     }
 
     @Override
-    public Optional<Entry> amountCalculadosNaBase(String lancamento, String amount, boolean paid) {
-        Optional<Entry> entryOptional = entryRepository.findByReverveName(lancamento, amount, paid);
-        return entryOptional;
+    public int dayCalculatorDataBase(String name) {
+        return 10;
     }
 
 }

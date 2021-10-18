@@ -36,11 +36,6 @@ public class Entry implements Serializable {
     @JoinColumn(name = "categoryId")
     private Category categoryId ;
 
-    public Entry(String data, String amount, boolean paid) {
-        this.date = data;
-        this.amount = amount;
-        this.paid = paid;
-    }
 }
 
 
