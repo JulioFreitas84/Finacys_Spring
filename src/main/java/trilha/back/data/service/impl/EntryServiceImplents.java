@@ -10,6 +10,7 @@ import trilha.back.data.service.repository.EntryRepository;
 import trilha.back.data.service.EntryService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EntryServiceImplents implements EntryService {
@@ -66,6 +67,12 @@ public class EntryServiceImplents implements EntryService {
         List<Entry> lancamentos = entryRepository.findByDateAndAmountAndPaid(lancamento, amount, paid);
         return lancamentos;
         // return ResponseEntity.ok(entryRepository.findAll());
+    }
+
+    @Override
+    public Optional<Entry> amountCalculadosNaBase(String lancamento, String amount, boolean paid) {
+        Optional<Entry> entryOptional = entryRepository.findByReverveName(lancamento, amount, paid);
+        return entryOptional;
     }
 
 }

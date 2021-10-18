@@ -6,6 +6,7 @@ import trilha.back.presenter.controller.dtos.response.CriarEntryResponse;
 import trilha.back.domain.entity.Entry;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface EntryService {
 
@@ -21,7 +22,8 @@ public interface EntryService {
 
     ResponseEntity<Integer> calculaMedia(Integer x, Integer y );
 
-
     List<Entry> listFilter(String lancamento, String amount, boolean paid);
 
+/*   ######################### Metodo de teste Unitario ###########################   */
+    Optional<Entry> amountCalculadosNaBase(String lancamento, String amount, boolean paid);
 }
