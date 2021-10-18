@@ -84,8 +84,9 @@
 
 		<!-- ################### motor vintage do JUnit 4###############-->
 		<dependency>
-			<groupId>org.junit.vintage</groupId>
-			<artifactId>junit-vintage-engine</artifactId>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>5.7.2</version>
 			<scope>test</scope>
 			<exclusions>
 				<exclusion>
@@ -94,7 +95,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
-		<!-- ################### motor vintage do JUnit 4 ###############-->
+		<!-- ################### motor vintage do JUnit 5 ###############-->
 
 	</dependencies>
 	<build>
