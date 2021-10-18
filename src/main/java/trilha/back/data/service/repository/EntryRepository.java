@@ -1,9 +1,8 @@
-package trilha.back.repository;
+package trilha.back.data.service.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
-import trilha.back.entity.Entry;
+import trilha.back.domain.entity.Entry;
 
 import java.util.List;
 

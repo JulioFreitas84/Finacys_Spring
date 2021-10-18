@@ -1,4 +1,4 @@
-package trilha.back.controller.dtos.request;
+package trilha.back.presenter.controller.dtos.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

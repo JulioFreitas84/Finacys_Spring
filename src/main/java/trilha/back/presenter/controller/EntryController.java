@@ -1,4 +1,4 @@
-package trilha.back.controller;
+package trilha.back.presenter.controller;
 
 
 import org.modelmapper.ModelMapper;
@@ -6,12 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import trilha.back.controller.dtos.request.CriarEntryRequest;
-import trilha.back.entity.Entry;
-import trilha.back.service.EntryService;
+import trilha.back.presenter.controller.dtos.request.CriarEntryRequest;
+import trilha.back.domain.entity.Entry;
+import trilha.back.data.service.EntryService;
 
 import javax.persistence.EntityNotFoundException;
-import java.awt.*;
 import java.util.List;
 
 //Controlador Rest

@@ -1,4 +1,4 @@
-package trilha.back.entity;
+package trilha.back.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;

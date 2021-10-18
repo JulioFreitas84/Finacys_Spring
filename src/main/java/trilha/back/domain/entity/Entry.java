@@ -1,4 +1,4 @@
-package trilha.back.entity;
+package trilha.back.domain.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
