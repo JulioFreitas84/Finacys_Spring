@@ -25,5 +25,7 @@ public interface EntryService {
     List<Entry> listFilter(String lancamento, String amount, boolean paid);
 
 /*   ######################### Metodo de teste Unitario ###########################   */
+
+
     Optional<Entry> amountCalculadosNaBase(String lancamento, String amount, boolean paid);
 }
