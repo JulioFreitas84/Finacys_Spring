@@ -83,7 +83,7 @@ public class EntryController {
        try {
            return  ResponseEntity.ok(entryService.listFilter(datalancamento, amount, paid));
        } catch (Exception e){
-           return ResponseEntity.badRequest().build();
+           return ResponseEntity.noContent().build();
         }
     }
 }
