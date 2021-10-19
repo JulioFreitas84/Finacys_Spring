@@ -70,10 +70,4 @@ public class EntryServiceImplents implements EntryService {
         // return ResponseEntity.ok(entryRepository.findAll());
     }
 
-    @Override
-    public int dayCalculatorDataBase(String name) {
-        Optional<Entry> entryOptional = entryRepository.findByReserveName(name);
-        return Period.ZERO.getDays();
-    }
-
 }

@@ -26,7 +26,7 @@ public interface EntryService {
 
     /*   ######################### Metodo de teste Unitario ###########################   */
 
-    int dayCalculatorDataBase(String name);
+
 
     /*   ######################### Metodo de teste Unitario ###########################   */
 

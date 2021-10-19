@@ -22,10 +22,7 @@ public class TrilhaBackTestes {
 
     @Test
     public void entryTestService(){
-        String name = "julio";
-        int day = entryService.dayCalculatorDataBase(name);
 
-        Assertions.assertEquals(day, 10);
     }
 
 
