@@ -14,4 +14,5 @@ import java.util.Optional;
 public interface EntryRepository extends JpaRepository<Entry,Long> {
     List<Entry> findByDateAndAmountAndPaid(String lancamento, String amount, boolean paid);
 
+    Optional<Entry> findByReserveName(String name);
 }

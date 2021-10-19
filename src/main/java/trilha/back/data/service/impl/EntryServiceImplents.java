@@ -9,6 +9,7 @@ import trilha.back.domain.entity.Entry;
 import trilha.back.data.service.repository.EntryRepository;
 import trilha.back.data.service.EntryService;
 
+import java.time.Period;
 import java.util.List;
 import java.util.Optional;
 
@@ -71,7 +72,8 @@ public class EntryServiceImplents implements EntryService {
 
     @Override
     public int dayCalculatorDataBase(String name) {
-        return 10;
+        Optional<Entry> entryOptional = entryRepository.findByReserveName(name);
+        return Period.ZERO.getDays();
     }
 
 }
