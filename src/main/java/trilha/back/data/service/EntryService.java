@@ -24,10 +24,4 @@ public interface EntryService {
 
     List<Entry> listFilter(String lancamento, String amount, boolean paid);
 
-    /*   ######################### Metodo de teste Unitario ###########################   */
-
-
-
-    /*   ######################### Metodo de teste Unitario ###########################   */
-
 }
