@@ -50,7 +50,7 @@ public class EntryTestController extends TrilhaBackTestes {
 
     //Teste executado com sucesso
     @Test
-    @DisplayName("Salva um lançamento")
+    @DisplayName("Salva EndPoint POST")
     public void entryTestSave() throws Exception {
         Entry entryTestPostSave = new Entry(1L, "Julio", "Description"
                 , "type", "200", "19/10/2021", true, true, Category);
@@ -62,7 +62,7 @@ public class EntryTestController extends TrilhaBackTestes {
 
     //Teste executado com sucesso
     @Test
-    @DisplayName("Busca todos lançamentos")
+    @DisplayName("Busca todos EndPoints GET")
     public void entryTestList() throws Exception {
         List entries = entryRepository.findAll();
         mockMvc.perform(get("/entry")
@@ -73,7 +73,7 @@ public class EntryTestController extends TrilhaBackTestes {
     }
 
     @Test
-    @DisplayName("Busca todos lançamentos por Id")
+    @DisplayName("Busca EndPoint por GET-ID")
     public void entryTestListId() throws Exception {
         List entries = entryRepository.findAll();
         mockMvc.perform(get("/entry/{id}", 1L)
@@ -84,7 +84,13 @@ public class EntryTestController extends TrilhaBackTestes {
     }
 
     @Test
-    @DisplayName("Remove um lancamento")
+    @DisplayName("Atualiza EndPoint PUT")
+    public void EntryTestAtualiza()throws Exception{
+
+    }
+
+    @Test
+    @DisplayName("Remove EndPoint DELETE")
     public void entryTestRemove() throws Exception {
 
     }
@@ -92,8 +98,8 @@ public class EntryTestController extends TrilhaBackTestes {
     @Test
     @DisplayName("Filtra lançamento Entry")
     public void FiltrarEntry() throws Exception {
-        List entriesFilter = entryRepository.findAll();
-        mockMvc.perform(get("/filter", "data_lançamento" + "amount", true)
+        List<Entry> entriesFilter = entryRepository.findByDateAndAmountAndPaid("","", true);
+        mockMvc.perform(get("/filter")
                         .contentType("Application/Json")
                         .content(objectMapper.writeValueAsString(entriesFilter)))
                 .andExpect(status().isOk());
