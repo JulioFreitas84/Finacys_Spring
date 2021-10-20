@@ -1,10 +1,13 @@
 package trilha.back.data.service;
 
+import org.springframework.data.jpa.domain.AbstractPersistable;
 import org.springframework.http.ResponseEntity;
 import trilha.back.presenter.controller.dtos.request.CriarEntryRequest;
 import trilha.back.presenter.controller.dtos.response.CriarEntryResponse;
 import trilha.back.domain.entity.Entry;
 
+import javax.persistence.metamodel.SingularAttribute;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 

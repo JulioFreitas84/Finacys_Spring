@@ -1,14 +1,19 @@
 package trilha.back.data.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.AbstractPersistable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 import trilha.back.presenter.controller.dtos.request.CriarEntryRequest;
 import trilha.back.presenter.controller.dtos.response.CriarEntryResponse;
 import trilha.back.domain.entity.Entry;
 import trilha.back.data.service.repository.EntryRepository;
 import trilha.back.data.service.EntryService;
 
+import javax.persistence.metamodel.SingularAttribute;
+import java.io.Serializable;
 import java.time.Period;
 import java.util.List;
 import java.util.Optional;
