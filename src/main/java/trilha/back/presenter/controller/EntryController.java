@@ -18,16 +18,13 @@ import java.util.List;
 @RequestMapping("/entry")
 public class EntryController {
 
-    //injetar
     @Autowired
     private EntryService entryService;
 
-    //Injetar
     @Autowired
     private ModelMapper modelMapper;
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Object> postEntry(@RequestBody CriarEntryRequest request) {
         return ResponseEntity.ok(entryService.salvarEntry(request));
     }
@@ -35,29 +32,25 @@ public class EntryController {
     //método dentro da controller de lançamentos para retornar a
     //lista criada com tratativa ResponseStatus
     @GetMapping
-    @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<List<Entry>> listEntry(Long id) {
-        return ResponseEntity.ok(entryService.listEntry(id).getBody());
+    public ResponseEntity <Object> listEntry() {
+        return ResponseEntity.ok(entryService.listEntry());
     }
 
-    //tudo isso é um EndPoint
     @GetMapping("/{id}")
-    @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<Entry> buscarEntryPorId(@PathVariable Long id) {
-        return ResponseEntity.ok(entryService.buscarEntryPorId(id)).getBody();
+    public ResponseEntity <Entry> buscarEntryPorId(@PathVariable Long id) {
+        return ResponseEntity.ok(entryService.buscarEntryPorId(id));
     }
 
 
     @PutMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)                  //Receber um Entry
-    public ResponseEntity<Entry> atualizarEntry(@PathVariable Long id, @RequestBody Entry entry) {
-        return ResponseEntity.ok(entryService.buscarEntryPorId(id)).getBody();
+    public ResponseEntity<Object> atualizarEntry(@PathVariable Long id, @RequestBody Entry entry) {
+        return ResponseEntity.ok(entryService.atualizarEntry(id, entry));
     }
 
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void removerEntryId(@PathVariable Long id) {
+    public ResponseEntity<Object> removerEntryId(@PathVariable Long id) {
         entryService.removerEntryId(id);
+        return ResponseEntity.noContent().build();
     }
 
 
@@ -70,7 +63,7 @@ public class EntryController {
 
             System.out.println("Meu errooooo" + e);
         }
-        return ResponseEntity.ok(entryService.calculaMedia(x, y).getBody());
+        return ResponseEntity.ok(entryService.calculaMedia(x, y));
 
     }
 

@@ -12,15 +12,15 @@ public interface EntryService {
 
     CriarEntryResponse salvarEntry(CriarEntryRequest entry);
 
-    ResponseEntity<List<Entry>> listEntry(Long id);
+    List<Entry> listEntry();
 
-    ResponseEntity<Entry> buscarEntryPorId(Long id);
+    Entry buscarEntryPorId(Long id);
 
-    Entry atualizarEntry(Long id, Entry entry);
+    Object atualizarEntry(Long id, Entry entry);
 
     Optional<Entry> removerEntryId(Long id);
 
-    ResponseEntity<Integer> calculaMedia(Integer x, Integer y );
+    Integer calculaMedia(Integer x, Integer y );
 
     Object listFilter(String lancamento, String amount, boolean paid);
 

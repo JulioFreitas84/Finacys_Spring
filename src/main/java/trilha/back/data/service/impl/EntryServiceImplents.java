@@ -3,6 +3,7 @@ package trilha.back.data.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 import trilha.back.presenter.controller.dtos.request.CriarEntryRequest;
 import trilha.back.presenter.controller.dtos.response.CriarEntryResponse;
 import trilha.back.domain.entity.Entry;
@@ -21,19 +22,20 @@ public class EntryServiceImplents implements EntryService {
     @Override
     public CriarEntryResponse salvarEntry(CriarEntryRequest entry) {
         Entry model = new Entry();
+        model.setId(model.getId());
         model.setName(model.getName());
         model.setDescription(model.getDescription());
-        return new CriarEntryResponse(model.getName(), model.getDescription());
+        return new CriarEntryResponse(model.getId(), model.getName(), model.getDescription());
     }
 
     @Override
-    public ResponseEntity<List<Entry>> listEntry(Long id) {
-        return ResponseEntity.ok(entryRepository.findAll());
+    public List<Entry> listEntry() {
+        return entryRepository.findAll();
     }
 
     @Override
-    public ResponseEntity<Entry> buscarEntryPorId(Long id) {
-        return ResponseEntity.ok(entryRepository.findById(id).orElseThrow());
+    public Entry buscarEntryPorId(Long id) {
+        return entryRepository.findById(id).orElseThrow();
     }
 
     @Override
@@ -44,7 +46,7 @@ public class EntryServiceImplents implements EntryService {
     }
 
     private Entry novoAtualizado(Entry base, Entry entry) {
-        base.setName(base.getName());
+        base.setName(entry.getName());
         return base;
     }
 
@@ -55,8 +57,8 @@ public class EntryServiceImplents implements EntryService {
     }
 
     @Override
-    public ResponseEntity<Integer> calculaMedia(Integer x, Integer y) {
-        return ResponseEntity.ok(x / y);
+    public Integer calculaMedia(Integer x, Integer y) {
+        return (x / y);
     }
 
     @Override

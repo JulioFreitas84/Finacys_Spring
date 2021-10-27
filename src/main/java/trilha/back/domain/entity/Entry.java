@@ -1,17 +1,14 @@
 package trilha.back.domain.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Entity
 public class Entry implements Serializable {
 
@@ -36,6 +33,9 @@ public class Entry implements Serializable {
     @JoinColumn(name = "categoryId")
     private Category categoryId ;
 
+    public Entry(long id, String julio_freitas, String description, String type, String amount, String date, boolean paid, boolean pendent, Object category) {
+
+    }
 }
 
 
