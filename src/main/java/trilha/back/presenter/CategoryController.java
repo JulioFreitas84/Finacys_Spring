@@ -1,4 +1,4 @@
-package trilha.back.presenter.controller;
+package trilha.back.presenter;
 
 
 import org.modelmapper.ModelMapper;
@@ -7,9 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-import trilha.back.presenter.controller.dtos.request.CriarCategoriaRequest;
-import trilha.back.domain.entity.Category;
-import trilha.back.data.service.CategoryService;
+import trilha.back.presenter.dtos.request.CriarCategoriaRequest;
+import trilha.back.domain.Category;
+import trilha.back.data.CategoryService;
 
 import java.util.List;
 

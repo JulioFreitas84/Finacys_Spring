@@ -1,4 +1,4 @@
-package trilha.back.presenter.controller.exceptions;
+package trilha.back.presenter.exceptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

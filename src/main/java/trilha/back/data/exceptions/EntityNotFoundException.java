@@ -1,4 +1,4 @@
-package trilha.back.data.service.exceptions;
+package trilha.back.data.exceptions;
 
 public class EntityNotFoundException extends RuntimeException{
     public EntityNotFoundException(String msg){

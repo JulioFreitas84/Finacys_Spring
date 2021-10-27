@@ -1,9 +1,9 @@
-package trilha.back.data.service;
+package trilha.back.data;
 
 import org.springframework.http.ResponseEntity;
-import trilha.back.presenter.controller.dtos.request.CriarCategoriaRequest;
-import trilha.back.presenter.controller.dtos.response.CriarCategoriaResponse;
-import trilha.back.domain.entity.Category;
+import trilha.back.presenter.dtos.request.CriarCategoriaRequest;
+import trilha.back.presenter.dtos.response.CriarCategoriaResponse;
+import trilha.back.domain.Category;
 
 import java.util.List;
 
