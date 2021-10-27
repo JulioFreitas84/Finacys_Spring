@@ -1,4 +1,4 @@
-package trilha.back.domain.entity;
+package trilha.back.entity;
 
 import lombok.*;
 

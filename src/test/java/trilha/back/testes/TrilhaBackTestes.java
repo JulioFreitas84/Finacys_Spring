@@ -14,11 +14,11 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import trilha.back.data.service.EntryService;
-import trilha.back.data.service.repository.EntryRepository;
-import trilha.back.domain.entity.Entry;
-import trilha.back.presenter.controller.dtos.request.CriarEntryRequest;
-import trilha.back.presenter.controller.dtos.response.CriarEntryResponse;
+import trilha.back.service.EntryService;
+import trilha.back.service.repository.EntryRepository;
+import trilha.back.entity.Entry;
+import trilha.back.controller.dtos.request.CriarEntryRequest;
+import trilha.back.controller.dtos.response.CriarEntryResponse;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -31,7 +31,7 @@ public class TrilhaBackTestes {
     @Autowired
     MockMvc mockMvc;
 
-    private trilha.back.domain.entity.Category Category;
+    private trilha.back.entity.Category Category;
 
     @Autowired
     private ObjectMapper objectMapper;

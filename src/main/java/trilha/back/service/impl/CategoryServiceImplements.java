@@ -1,18 +1,18 @@
-package trilha.back.data.service.impl;
+package trilha.back.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import trilha.back.presenter.controller.dtos.request.CriarCategoriaRequest;
-import trilha.back.presenter.controller.dtos.response.CriarCategoriaResponse;
-import trilha.back.domain.entity.Category;
-import trilha.back.data.service.repository.CategoryRepository;
-import trilha.back.data.service.CategoryService;
+import trilha.back.controller.dtos.request.CriarCategoriaRequest;
+import trilha.back.controller.dtos.response.CriarCategoriaResponse;
+import trilha.back.entity.Category;
+import trilha.back.service.repository.CategoryRepository;
+import trilha.back.service.CategoryService;
 
 import java.util.List;
 
 @Service
-public class CategoryServiceImplents implements CategoryService {
+public class CategoryServiceImplements implements CategoryService {
 
     @Autowired
     CategoryRepository categoryRepository;

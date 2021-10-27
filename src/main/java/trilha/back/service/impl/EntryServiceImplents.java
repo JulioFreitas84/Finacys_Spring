@@ -1,14 +1,12 @@
-package trilha.back.data.service.impl;
+package trilha.back.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
-import trilha.back.presenter.controller.dtos.request.CriarEntryRequest;
-import trilha.back.presenter.controller.dtos.response.CriarEntryResponse;
-import trilha.back.domain.entity.Entry;
-import trilha.back.data.service.repository.EntryRepository;
-import trilha.back.data.service.EntryService;
+import trilha.back.controller.dtos.request.CriarEntryRequest;
+import trilha.back.controller.dtos.response.CriarEntryResponse;
+import trilha.back.entity.Entry;
+import trilha.back.service.repository.EntryRepository;
+import trilha.back.service.EntryService;
 
 import java.util.List;
 import java.util.Optional;

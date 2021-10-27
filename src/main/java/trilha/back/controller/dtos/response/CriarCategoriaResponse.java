@@ -1,32 +1,23 @@
-package trilha.back.presenter.controller.dtos.response;
+package trilha.back.controller.dtos.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Builder;
-import lombok.Data;
 
+public class CriarCategoriaResponse {
 
-@Data
-@Builder
-public class CriarEntryResponse {
-
-    @JsonProperty("id_response")
+    @JsonProperty("numero_do_id_categoria")
     private Long id;
-    @JsonProperty("name_response")
+    @JsonProperty("name_categoria")
     private String name;
-    @JsonProperty("description_reponse")
+    @JsonProperty("descricao_categoria")
     private String description;
 
-    public CriarEntryResponse(Long id,String name, String description) {
+    public CriarCategoriaResponse(Long id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
+    public CriarCategoriaResponse(Long id) {
         this.id = id;
     }
 
@@ -44,5 +35,13 @@ public class CriarEntryResponse {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
