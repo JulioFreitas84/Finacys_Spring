@@ -15,6 +15,7 @@ import trilha.back.entity.Entry;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @DisplayName("EntryServiceImplements")
 @SpringBootTest
@@ -29,6 +30,7 @@ public class EntryServiceTest {
     private Category category;
 
     @Test
+    @DisplayName("")
     public void listEntryTest(){
         //Preparação
         List<Entry> list = new ArrayList<>();
@@ -45,9 +47,13 @@ public class EntryServiceTest {
     @DisplayName("")
     public  void buscarEntryPorIdTest(){
         //Preparação
-        Entry entry = new Entry();
+
+        Entry entry = Mockito.mock(Entry.class);
+
+       /* Entry entry = new Entry();
         Entry entryMoc = Mockito.mock(Entry.class);
         entry.setId(entryMoc.getId());
+         */
 
         //Ação
         Mockito.when(entryRepository.findById(1L)).thenReturn(java.util.Optional.of(entry));
@@ -57,30 +63,28 @@ public class EntryServiceTest {
     }
 
     @Test
+    @DisplayName("")
     public  void atualizarEntryTest(){
         //Preparação
+        Entry entry = Mockito.mock(Entry.class);
 
         //Ação
+        Mockito.when(entryRepository.findById(1L)).thenReturn(java.util.Optional.of(entry));
 
         //Verificação
-    }
 
-    @Test
-    public  void novoAtualizadoTest(){
-        //Preparação
-
-        //Ação
-
-        //Verificação
     }
 
     @Test
     public  void removerEntryIdTest(){
         //Preparação
+        Entry entry = Mockito.mock(Entry.class);
 
         //Ação
+        Mockito.when(entryRepository.findById(1L)).thenReturn(java.util.Optional.of(entry));
 
         //Verificação
+        Assert.assertNull(service.removerEntryId(1L));
     }
 
     @Test
@@ -95,10 +99,15 @@ public class EntryServiceTest {
     @Test
     public void listFilterTest(){
         //Preparação
+        List<Entry> list = new ArrayList<>();
+        Entry entry = Mockito.mock(Entry.class);
+        list.add(entry);
 
         //Ação
+        Mockito.when(entryRepository.findByDateAndAmountAndPaid("lançamento","amount",true)).thenReturn(list);
 
         //Verificação
+        Assert.assertNull(service.listFilter("lançamento","amount",true));
     }
 
 }

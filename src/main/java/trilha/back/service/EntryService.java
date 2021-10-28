@@ -15,7 +15,7 @@ public interface EntryService {
 
     Entry buscarEntryPorId(Long id);
 
-    Object atualizarEntry(Long id, Entry entry);
+    Entry atualizarEntry(Long id, Entry entry);
 
     Optional<Entry> removerEntryId(Long id);
 
