@@ -1,6 +1,7 @@
 package trilha.back.testes;
 
 import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -47,7 +48,6 @@ public class EntryServiceTest {
     @DisplayName("")
     public  void buscarEntryPorIdTest(){
         //Preparação
-
         Entry entry = Mockito.mock(Entry.class);
 
        /* Entry entry = new Entry();
@@ -72,7 +72,7 @@ public class EntryServiceTest {
         Mockito.when(entryRepository.findById(1L)).thenReturn(java.util.Optional.of(entry));
 
         //Verificação
-
+        Assert.assertNull(service.atualizarEntry(1L,entry));
     }
 
     @Test
@@ -107,7 +107,24 @@ public class EntryServiceTest {
         Mockito.when(entryRepository.findByDateAndAmountAndPaid("lançamento","amount",true)).thenReturn(list);
 
         //Verificação
-        Assert.assertNull(service.listFilter("lançamento","amount",true));
+        Assert.assertNotNull(service.listFilter("lançamento","amount",true));
+    }
+
+    @Test
+    public void listFilterErroTest(){
+        //Preparação
+        List<Entry> list = new ArrayList<>();
+        Entry entry = Mockito.mock(Entry.class);
+        list.add(entry);
+
+        //Ação
+        Mockito.when(entryRepository.findByDateAndAmountAndPaid("lançamento","amount",true)).thenReturn(list);
+
+        //Verificação
+        Assert.assertThrows(RuntimeException.class,
+                ()->{
+                    service.listFilter(null,null,false);
+                });
     }
 
 }

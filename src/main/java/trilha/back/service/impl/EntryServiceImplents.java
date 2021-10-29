@@ -43,7 +43,7 @@ public class EntryServiceImplents implements EntryService {
 
     }
 
-    private Entry novoAtualizado(Entry base, Entry entry) {
+    public Entry novoAtualizado(Entry base, Entry entry) {
         base.setName(entry.getName());
         return base;
     }
@@ -63,7 +63,7 @@ public class EntryServiceImplents implements EntryService {
     public List<Entry> listFilter(String lancamento, String amount, boolean paid){
 
         if (lancamento == null || amount == null){
-            throw new RuntimeException("erro");
+            throw new RuntimeException("erro que eu coloquei");
         }
         List<Entry> lancamentos = entryRepository.findByDateAndAmountAndPaid(lancamento, amount, paid);
         return lancamentos;
