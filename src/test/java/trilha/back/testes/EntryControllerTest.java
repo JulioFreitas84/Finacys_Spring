@@ -10,10 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 import trilha.back.service.EntryService;
 import trilha.back.entity.Category;
 import trilha.back.entity.Entry;
+
+import javax.persistence.EntityNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -45,6 +50,16 @@ public class EntryControllerTest {
         mockMvc.perform(post("/entry")
                         .contentType("Application/Json")
                         .content(objectMapper.writeValueAsString(entryTestPostSave)))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void listEntryTest() throws Exception{
+        List entry = new ArrayList();
+        Entry entry1 = Mockito.mock(Entry.class);
+        Mockito.when(entryService.listEntry()).thenReturn(entry);
+        mockMvc.perform(get("/entry")
+                .contentType("Application/Json"))
                 .andExpect(status().isOk());
     }
 
@@ -96,15 +111,7 @@ public class EntryControllerTest {
     @Test
     @DisplayName("Metodo Calcular")
     public void calculaMetodoTest() throws Exception {
-        //Preparação
-
-
-        //Ação
-        Integer x = null;
-        Integer y = null;
-        Mockito.when(entryService.calculaMedia( x,  y)).thenReturn(null);
-
-        //Verificação
+        Mockito.when(entryService.calculaMedia(10,5)).thenReturn(2);
         Assert.assertNotNull(entryService.calculaMedia(10,5));
     }
 

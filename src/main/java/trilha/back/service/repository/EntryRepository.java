@@ -9,8 +9,4 @@ import java.util.List;
 @Repository
 public interface EntryRepository extends JpaRepository<Entry,Long> {
     List<Entry> findByDateAndAmountAndPaid(String lancamento, String amount, boolean paid);
-
-
-
-
 }

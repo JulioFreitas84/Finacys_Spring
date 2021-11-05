@@ -67,7 +67,6 @@ public class EntryServiceImplents implements EntryService {
         }
         List<Entry> lancamentos = entryRepository.findByDateAndAmountAndPaid(lancamento, amount, paid);
         return lancamentos;
-        // return ResponseEntity.ok(entryRepository.findAll());
     }
 
 }

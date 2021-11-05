@@ -19,8 +19,6 @@ public interface CategoryService {
 
     void deletaCategory(Long id);
 
-    boolean validar();
-
-
+    boolean validar(Long id);
 
 }

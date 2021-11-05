@@ -6,15 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import trilha.back.controller.dtos.request.CriarEntryRequest;
+import trilha.back.controller.exceptions.ControllerExceptionHandler;
+import trilha.back.controller.exceptions.StandardError;
 import trilha.back.entity.Entry;
 import trilha.back.service.EntryService;
 
 import javax.persistence.EntityNotFoundException;
+import java.lang.annotation.Annotation;
 
 //Controlador Rest
 @RestController
 @RequestMapping("/entry")
-public class EntryController {
+public class EntryController extends ControllerExceptionHandler {
 
     @Autowired
     private EntryService entryService;
@@ -30,7 +33,7 @@ public class EntryController {
     //método dentro da controller de lançamentos para retornar a
     //lista criada com tratativa ResponseStatus
     @GetMapping
-    public ResponseEntity <Object> listEntry() {
+    public ResponseEntity<Object> listEntry() {
         return ResponseEntity.ok(entryService.listEntry());
     }
 
@@ -55,9 +58,9 @@ public class EntryController {
     @GetMapping(value = "/{x}/{y}/calcular")
     public ResponseEntity<Integer> calculaMedia(@PathVariable Integer x, @PathVariable Integer y ){
         try {
-            calculaMedia(x, y);
+            entryService.calculaMedia(x,y);
            // return ResponseEntity.ok(entryService.calculaMedia(x,y)).getBody();
-        }catch (EntityNotFoundException e){
+        }catch (RuntimeException e){
 
             System.out.println("Meu errooooo" + e);
         }
