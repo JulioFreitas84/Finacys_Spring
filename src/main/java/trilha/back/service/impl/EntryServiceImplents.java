@@ -23,8 +23,7 @@ public class EntryServiceImplents implements EntryService {
 
     @Override
     public CriarCategoriaResponse salvarEntry(CriarEntryRequest entry) {
-        Entry model = new Entry();
-        model.setId(entry.getId());
+        Entry model =  new Entry();
         model.setName(entry.getName());
         model.setDescription(entry.getDescription());
         model.setType(entry.getType());

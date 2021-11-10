@@ -45,12 +45,7 @@ public class EntryControllerTest {
     @Test
     @DisplayName("Deve salvar uma Entry")
     public void entrySaveTest() throws Exception {
-        Entry entryTestPostSave = new Entry(1L, "Julio", "Description"
-                , "type", "200", "19/10/2021", true, true, category);
-        mockMvc.perform(post("/entry")
-                        .contentType("Application/Json")
-                        .content(objectMapper.writeValueAsString(entryTestPostSave)))
-                .andExpect(status().isOk());
+
     }
 
     @Test
@@ -99,13 +94,6 @@ public class EntryControllerTest {
     @Test
     @DisplayName("Deve atualizar Entry")
     public void atualizaLancamentoTest() throws Exception {
-        Entry atualizaEntryTest = new Entry(1L, "Julio Freitas", "Description"
-                , "type", "400", "19/10/2021", false, true, category);
-        Mockito.when(entryService.atualizarEntry(1L,atualizaEntryTest)).thenReturn(atualizaEntryTest);
-        mockMvc.perform(put("/entry/1")
-                .contentType("Application/Json")
-                .content(objectMapper.writeValueAsString(atualizaEntryTest)))
-                .andExpect(status().isOk());
     }
 
     @Test

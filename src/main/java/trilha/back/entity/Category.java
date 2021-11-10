@@ -23,7 +23,6 @@ public class Category implements Serializable {
     private String name;
     @Column(name = "description_cat")
     private String description;
-
     @OneToMany(mappedBy = "categoryId")
     private List<Entry> entry;
 
@@ -32,5 +31,32 @@ public class Category implements Serializable {
         return entry;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setEntry(List<Entry> entry) {
+        this.entry = entry;
+    }
 
 }

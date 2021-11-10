@@ -8,4 +8,5 @@ import trilha.back.entity.Entry;
 public interface EntryMapper {
 
     CriarCategoriaResponse modelToResponse(Entry save);
+
 }
