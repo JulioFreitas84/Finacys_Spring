@@ -3,8 +3,9 @@ package trilha.back.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import trilha.back.controller.dtos.request.CriarEntryRequest;
-import trilha.back.controller.dtos.response.CriarEntryResponse;
+import trilha.back.controller.dtos.response.CriarCategoriaResponse;
 import trilha.back.entity.Entry;
+import trilha.back.mapper.EntryMapper;
 import trilha.back.service.repository.EntryRepository;
 import trilha.back.service.EntryService;
 
@@ -16,15 +17,26 @@ public class EntryServiceImplents implements EntryService {
 
     @Autowired
     private EntryRepository entryRepository;
+    
+    @Autowired
+    EntryMapper entryMapper;
 
     @Override
-    public CriarEntryResponse salvarEntry(CriarEntryRequest entry) {
+    public CriarCategoriaResponse salvarEntry(CriarEntryRequest entry) {
         Entry model = new Entry();
-        model.setId(model.getId());
-        model.setName(model.getName());
-        model.setDescription(model.getDescription());
-        return new CriarEntryResponse(model.getId(), model.getName(), model.getDescription());
+        model.setId(entry.getId());
+        model.setName(entry.getName());
+        model.setDescription(entry.getDescription());
+        model.setType(entry.getType());
+        model.setAmount(entry.getAmount());
+        model.setDate(entry.getDate());
+        model.setPaid(entry.isPaid());
+        model.setPendent(entry.isPendent());
+        model.setCategoryId(entry.getCategory());
+
+        return entryMapper.modelToResponse(entryRepository.save(model));
     }
+
 
     @Override
     public List<Entry> listEntry() {

@@ -1,7 +1,7 @@
 package trilha.back.service;
 
 import trilha.back.controller.dtos.request.CriarEntryRequest;
-import trilha.back.controller.dtos.response.CriarEntryResponse;
+import trilha.back.controller.dtos.response.CriarCategoriaResponse;
 import trilha.back.entity.Entry;
 
 import java.util.List;
@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface EntryService {
 
-    CriarEntryResponse salvarEntry(CriarEntryRequest entry);
+    CriarCategoriaResponse salvarEntry(CriarEntryRequest entry);
 
     List<Entry> listEntry();
 

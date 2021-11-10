@@ -3,11 +3,13 @@ package trilha.back.controller.dtos.request;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Data;
+import trilha.back.entity.Category;
 
 @Data
 @Builder
 public class CriarEntryRequest {
 
+//Cliente envia essas informações pelo Postman ou Swagger
 
     @JsonProperty("id_response")
     private Long id;
@@ -15,41 +17,16 @@ public class CriarEntryRequest {
     private String name;
     @JsonProperty("description_reponse")
     private String description;
-
-    public CriarEntryRequest(Long id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-/* @JsonProperty("data_lancamento")
-    private String date;
+    @JsonProperty("type")
+    private String type;
     @JsonProperty("amount")
     private String amount;
+    @JsonProperty("date")
+    private String date;
     @JsonProperty("paid")
-    private boolean paid; */
+    private boolean paid = false;
+    @JsonProperty("pendent")
+    private boolean pendent = false;
 
+    private Category category;
 }

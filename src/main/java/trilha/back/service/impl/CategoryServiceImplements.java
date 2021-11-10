@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import trilha.back.controller.dtos.request.CriarCategoriaRequest;
 import trilha.back.controller.dtos.response.CriarCategoriaResponse;
 import trilha.back.entity.Category;
+import trilha.back.mapper.CategoryMapper;
 import trilha.back.service.repository.CategoryRepository;
 import trilha.back.service.CategoryService;
 
@@ -19,13 +20,15 @@ public class CategoryServiceImplements implements CategoryService {
     @Autowired
     CategoryRepository categoryRepository;
 
+    @Autowired
+    CategoryMapper categoryMapper;
+
     @Override
     public CriarCategoriaResponse salvarCategory(CriarCategoriaRequest category) {
         Category model = new Category();
         model.setName(category.getName());
         model.setDescription(category.getDescricao());
-        categoryRepository.save(model);
-        return new CriarCategoriaResponse(model.getId(), model.getName(), model.getDescription()) ;
+        return categoryMapper.modelCategoryToResponse(categoryRepository.save(model));
     }
 
     @Override

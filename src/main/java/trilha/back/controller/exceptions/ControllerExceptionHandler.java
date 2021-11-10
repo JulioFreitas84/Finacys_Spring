@@ -7,10 +7,11 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import trilha.back.service.exceptions.EntityNotFoundException;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.Serializable;
 import java.time.Instant;
 
 @ControllerAdvice
-public class ControllerExceptionHandler {
+public class ControllerExceptionHandler implements Serializable {
     //metodo personalizado criado EntityNotFoundException
 
     //retorno vai ser ResponseEntity e generic será o StandarError

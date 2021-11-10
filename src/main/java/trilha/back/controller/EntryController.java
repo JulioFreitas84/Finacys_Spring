@@ -7,12 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import trilha.back.controller.dtos.request.CriarEntryRequest;
 import trilha.back.controller.exceptions.ControllerExceptionHandler;
-import trilha.back.controller.exceptions.StandardError;
 import trilha.back.entity.Entry;
 import trilha.back.service.EntryService;
-
-import javax.persistence.EntityNotFoundException;
-import java.lang.annotation.Annotation;
 
 //Controlador Rest
 @RestController
