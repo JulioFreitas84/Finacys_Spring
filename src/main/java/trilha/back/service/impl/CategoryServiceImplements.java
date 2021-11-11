@@ -25,8 +25,7 @@ public class CategoryServiceImplements implements CategoryService {
 
     @Override
     public CriarCategoriaResponse salvarCategory(CriarCategoriaRequest category) {
-        Category model = new Category();
-        model.setName(category.getName());
+        Category model = categoryMapper.requestToModel(category);
         model.setDescription(category.getDescricao());
         return categoryMapper.modelCategoryToResponse(categoryRepository.save(model));
     }
