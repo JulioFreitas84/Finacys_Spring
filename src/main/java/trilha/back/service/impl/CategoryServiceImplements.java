@@ -13,6 +13,7 @@ import trilha.back.service.CategoryService;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CategoryServiceImplements implements CategoryService {
@@ -26,7 +27,7 @@ public class CategoryServiceImplements implements CategoryService {
     @Override
     public CriarCategoriaResponse salvarCategory(CriarCategoriaRequest category) {
         Category model = categoryMapper.requestToModel(category);
-        model.setDescription(category.getDescricao());
+        model.setDescription(category.getDescription());
         return categoryMapper.modelCategoryToResponse(categoryRepository.save(model));
     }
 

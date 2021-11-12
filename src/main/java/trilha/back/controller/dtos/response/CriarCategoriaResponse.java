@@ -4,11 +4,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class CriarCategoriaResponse {
 
-    @JsonProperty("numero_do_id_categoria")
+    @JsonProperty("id_category")
     private Long id;
-    @JsonProperty("name_categoria")
+    @JsonProperty("name_category")
     private String name;
-    @JsonProperty("descricao_categoria")
+    @JsonProperty("descricao_category")
     private String description;
 
     public Long getId() {

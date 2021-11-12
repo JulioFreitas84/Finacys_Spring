@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import trilha.back.controller.dtos.request.CriarCategoriaRequest;
+import trilha.back.controller.dtos.response.CriarCategoriaResponse;
 import trilha.back.entity.Category;
 import trilha.back.service.CategoryService;
 

@@ -6,16 +6,15 @@ public class CriarCategoriaRequest {
 
     @JsonProperty("nome_da_categoria_request")
     private String name;
-
     @JsonProperty("description_category_request")
-    private String descricao;
+    private String description;
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getName() {
