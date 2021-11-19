@@ -17,6 +17,7 @@ import java.util.List;
 
 //Controlador Rest
 @RestController
+@CrossOrigin
 @RequestMapping("/category")
 public class CategoryController {
 

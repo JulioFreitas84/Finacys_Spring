@@ -1,6 +1,5 @@
 package trilha.back.service.impl;
 
-import net.bytebuddy.pool.TypePool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -8,12 +7,11 @@ import trilha.back.controller.dtos.request.CriarCategoriaRequest;
 import trilha.back.controller.dtos.response.CriarCategoriaResponse;
 import trilha.back.entity.Category;
 import trilha.back.mapper.CategoryMapper;
-import trilha.back.service.repository.CategoryRepository;
 import trilha.back.service.CategoryService;
+import trilha.back.service.repository.CategoryRepository;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 public class CategoryServiceImplements implements CategoryService {

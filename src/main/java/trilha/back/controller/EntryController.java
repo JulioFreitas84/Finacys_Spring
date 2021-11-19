@@ -12,6 +12,7 @@ import trilha.back.service.EntryService;
 
 //Controlador Rest
 @RestController
+@CrossOrigin
 @RequestMapping("/entry")
 public class EntryController extends ControllerExceptionHandler {
 
