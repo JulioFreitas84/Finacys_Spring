@@ -4,9 +4,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class CriarCategoriaRequest {
 
-    @JsonProperty("nome_da_categoria_request")
+    @JsonProperty("name")
     private String name;
-    @JsonProperty("description_category_request")
+    @JsonProperty("description")
     private String description;
 
     public String getDescription() {

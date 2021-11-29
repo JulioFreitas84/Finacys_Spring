@@ -11,11 +11,11 @@ public class CriarEntryRequest {
 
 //Cliente envia essas informações pelo Postman ou Swagger
 
-    @JsonProperty("id_response")
+    @JsonProperty("id")
     private Long id;
-    @JsonProperty("name_response")
+    @JsonProperty("name")
     private String name;
-    @JsonProperty("description_reponse")
+    @JsonProperty("description")
     private String description;
     @JsonProperty("type")
     private String type;

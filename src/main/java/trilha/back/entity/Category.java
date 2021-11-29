@@ -19,9 +19,9 @@ public class Category implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "name_cat", nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
-    @Column(name = "description_cat")
+    @Column(name = "description")
     private String description;
     @OneToMany(mappedBy = "categoryId")
     private List<Entry> entry;
